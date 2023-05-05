@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="body" class="bg-[#000000] sticky">
+    <nav id="navbar" class="backdrop-blur-sm bg-transparent flex justify-start shadow-neutral-950 shadow-2xl  py-8 fixed top-0">
+        <!-- logo -->
+        <i class="fa-sharp fa-regular fa-b fa-2xl mx-[280px] pt-2.5" style="color: white;"></i>
+        <!-- mengatur jarak navbar -->
+        <div class="flex justify-start mx-[108px] py-1.5">
+            <div class="flex ml-[280px] space-x-0.1 outline-none">
+                <a id="about"
+                    class="text-white font-light outline-none hover:bg-indigo-700 h-0.5 w-full hover:text-gray-300 active:bg-gray-500"
+                    href="about.html">about</a>
+                <a class="text-white font-light outline-none hover:bg-indigo-700 h-0.5 w-full hover:text-gray-300 active:bg-gray-500"
+                    href="#">project</a>
+                <a class="text-white font-light outline-none hover:bg-indigo-700 h-0.5 w-full hover:text-gray-300 active:bg-gray-500"
+                    href="#">more</a>
+                <!-- <h1 class="text-white font-extralight hover:text-indigo-500 font-light"><a href="">contact</h1></a>
+                <h1 class="text-white font-extralight hover:text-indigo-500 font-light"><a href="">other</a></h1> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-[150px]">
+        <div class="inline-flex pt-[200px] space-x-2 outline-none">
+            <h1 class="text-gray-100 text-5xl font-thin pl-20">Bonjour, I'm</h1><br>
+            <h1 class="text-indigo-600 text-5xl font-extralight outline-none">Bagas Bintang</h1>
+            <!--Animasi-->
+            <span class="flex relative h-10 w-10 top-3 left-3">
+                <span class="flex absolte animate-ping bg-gray-500 w-full h-full rounded-full"></span>
+            </span>
+        </div>
+        <div>
+            <p class="py-5 px-[100px] font-thin text-gray-500">I am a web developer and a beginner.</p>
+        </div>
+    </div>
+
+    
+    <script src="./main.js"></script>
+
+    <span id="egg" class="flex absolute right-5 text-xs outline-none mr-[200px] hover:text-green-400" onclick="easterEgg()">Hoo!</span>
+
+
+    <footer class="pt-[350px]">
+        <hr class="mx-[50px] border-gray-800 blur-1px">
+        <div class="flex justify-start">
+        <div class="py-[30px] px-[65px] text-sm pl-[70px]">
+            <a class="text-indigo-600 font-extralight hover:text-white active:text-indigo-600" href="about.html">about</a><br>
+            <a class="text-gray-600 font-extralight hover:text-white active:text-indigo-600" href="#">project</a><br>
+        </div> 
+
+        <div class="py-[30px] px-[65px] text-sm pl-[70px]">
+            <a class="text-gray-600 font-light hover:text-white active:text-indigo-600" href="#">message</a><br>
+            <a class="text-gray-600 font-light hover:text-white active:text-indigo-600" href="#">contact</a>
+        </div>
+    </div>
+    </footer>
+
+
+    <script src="./main.js"></script>
+
+
+    <!-- <footer class="pt-[450px]">
+        <div class="my-[-100px]">
+        <hr class="mx-[50px] border-gray-800 blur-1xl">
+        <div class="pt-5 flex">
+        <a href="contact.html" class="text-gray-400 font-thin pl-[100px]">contact</a><br>
+        <a href="about.html" class="text-gray-400 font-thin pl-[100px]">about</a>
+        </div>
+    </footer> -->
+
+</body>
+
+</html>
