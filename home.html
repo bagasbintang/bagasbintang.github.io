@@ -2,82 +2,377 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-    <link rel="stylesheet" href="dist/output.css">
-    <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <link rel="stylesheet" href="dist/output.css">
+  <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
+    rel="stylesheet">
 </head>
 
-<body id="body" class="bg-[#000000] sticky">
-    <nav id="navbar" class="backdrop-blur-sm bg-transparent flex justify-start shadow-neutral-950 shadow-2xl  py-8 fixed top-0">
-        <!-- logo -->
-        <i class="fa-sharp fa-regular fa-b fa-2xl mx-[280px] pt-2.5" style="color: white;"></i>
-        <!-- mengatur jarak navbar -->
-        <div class="flex justify-start mx-[108px] py-1.5">
-            <div class="flex ml-[280px] space-x-0.1 outline-none">
-                <a id="about"
-                    class="text-white font-light outline-none hover:bg-indigo-700 h-0.5 w-full hover:text-gray-300 active:bg-gray-500"
-                    href="about.html">about</a>
-                <a class="text-white font-light outline-none hover:bg-indigo-700 h-0.5 w-full hover:text-gray-300 active:bg-gray-500"
-                    href="#">project</a>
-                <a class="text-white font-light outline-none hover:bg-indigo-700 h-0.5 w-full hover:text-gray-300 active:bg-gray-500"
-                    href="#">more</a>
-                <!-- <h1 class="text-white font-extralight hover:text-indigo-500 font-light"><a href="">contact</h1></a>
-                <h1 class="text-white font-extralight hover:text-indigo-500 font-light"><a href="">other</a></h1> -->
-            </div>
-        </div>
-    </nav>
+<body id="body" class="bg-black text-white flex flex-col min-h-screen font-inter max-w-screen-lg mx-auto px-4 lg:px-0">
 
-    <div class="pt-[150px]">
-        <div class="inline-flex pt-[200px] space-x-2 outline-none">
-            <h1 class="text-gray-100 text-5xl font-thin pl-20">Bonjour, I'm</h1><br>
-            <h1 class="text-indigo-600 text-5xl font-extralight outline-none">Bagas Bintang</h1>
-            <!--Animasi-->
-            <span class="flex relative h-10 w-10 top-3 left-3">
-                <span class="flex absolte animate-ping bg-gray-500 w-full h-full rounded-full"></span>
-            </span>
-        </div>
-        <div>
-            <p class="py-5 px-[100px] font-thin text-gray-500">I am a web developer and a beginner.</p>
-        </div>
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 inset-x-0 bg-transparent backdrop-blur shadow-1xl z-50">
+    <div class="max-w-[950px] mx-auto px-5 lg:px-0 py-6">
+      <div class="flex items-center justify-between">
+
+      <!-- LEFT ICON -->
+      <a href="home.html">
+        <i class="fa-sharp fa-regular fa-b fa-lg lg:fa-xl hover:text-indigo-700"></i>
+      </a>
+
+      <!-- CENTER LOGO -->
+      <img src="./gambar/Bagas' new logo black none.png" class="h-8 lg:h-10 absolute-left-1/2-translate-x-1/2" alt="Logo">
+
+      <!-- MENU -->
+      <div class="hidden lg:flex space-x-6 font-light text-sm">
+        <a href="about.html" class="hover:text-gray-300">About</a>
+        <a href="about.html" class="hover:text-gray-300">Project</a>
+        <a href="comment.html" class="hover:text-gray-300">GuestBook</a>
+        <a href="#" class="hover:text-gray-300">More</a>
+      </div>
     </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-40">
+    <div class="max-w-[900px] mx-auto px-5 lg:px-0">
+      <div class="flex flex-col items-start lg:items-start">
+        <img src="./gambar/pakuon.png" class="h-[90px] lg:h-[90px] rounded-full cursor-pointer
+                       transition-transform duration-300 ease-out
+                       hover:scale-110 my-6" alt="Bagas Profile">
+        <h1 class="text-slate-100 font-extrabold text-[clamp(1.875rem,4vw,3rem)] font-inter">
+          <span class=" w-[120px] text-left text-red-300 transition-opacity duration-500 tracking-tight" id="greeting">Hello</span>
+        </h1>
+        <div id="hero-title" class="opacity-0 translate-y-6 transition-all duration-700 ease-out">
+          <h1 class="flex items-center gap-3 text-slate-100 text-[clamp(1.875rem,4vw,3rem)] leading-tight font-bold font-inter">
+            <span class="tracking-tight">I'm Bagas Bintang.</span>
+            <br>
+          </h1>
+
+          <span class="flex items-center gap-3 text-slate-100 text-[clamp(1.875rem,4vw,3rem)] leading-tight font-bold font-inter -mt-2 tracking-tight">
+            Learner &amp; Thinker
+
+            <!-- Ping -->
+            <span class="flex relative h-3 w-3 top-3 left-3">
+              <span class="absolute inline-flex opacity-75 animate-ping bg-gray-500 w-full h-full rounded-full"></span>
+            </span>
+          </span>
+        </div>
+
+
+        <h1 class="py-5 text-gray-400 font-inter text-base">
+          Interested in
+          <b class="text-slate-100 text-md">Hands-on work</b>,
+          <b class="text-slate-100 text-md">Continuous learning</b>,
+          <br> and
+          <b class="text-slate-100 text-md">Building real-world skill</b> through practical experience.
+        </h1>
+
+        <div class="flex flex-wrap gap-4 mt-6">
+          <!-- Button 1 -->
+          <button class="relative px-3 sm:px-4 py-1.5  sm:py-2 border border-gray-700 rounded-md bg-black text-white font-semibold transition-all duration-200
+                             hover:border-gray-500 hover:translate-y-1 hover:shadow-md">
+            Learn More
+          </button>
+
+          <!-- Button 2 -->
+          <button class="relative px-3 sm:px-4 py-1.5 border border-gray-700 rounded-md bg-black text-white font-semibold transition-all duration-200
+                             hover:border-gray-500 hover:translate-y-1 hover:shadow-md">
+                             <a href="about.html">
+            More About Me
+          </a>
+          </button>
+
+          <!-- Button Comment -->
+          <button class="relative px-3 sm:px-4 py-1.5 border border-gray-700 rounded-md bg-black text-white font-semibold transition-all duration-200
+                             hover:border-gray-500 hover:translate-y-1 hover:shadow-md">
+            <i class="fa-regular fa-comment"></i>
+          </button>
+        </div>
+      </div>
+      <br>
+  </section>
+
+  <section class="pt-80">
+    <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+      <hr class="mx-[50px] border-gray-800">
+      <div class="max-w-[900px] mx-auto px-5 lg:px-0">
+        <h1 class="text-slate-100 text-[clamp(1.875rem,4vw,3rem)] font-bold tracking-tight py-5">
+          What I'm focusing on
+        </h1>
+        <h2 class="text-slate-100 text-lg pb-3">I'm currently focusing on:</h2>
+        <span class="text-gray-400 text-base font-inter tracking-tight">
+          Improving my communication skills,
+          <br> enhancing my practical work discipline,
+          <br> and developing my personal and professional abilities.
+          <br>
+          <br> I aim to grow through continuous learning,
+          <br> gaining new experiences, and applying knowledge in real-life situations.
+          <br> I also strive to strengthen my problem-solving skills, adapt to different challenges,
+          <br> and build a mindset of resilience and self-improvement.
+        </span>
+      </div>
+
+      <!-- button know more about me dibawah-->
+      <div class="flex justify-center gap-4 mt-6">
+        <button class="group flex items-center gap-2 px-4 py-10 text-slate-100 text-md font-semibold tracking-tight hover:text-red-300">
+          <span>Know more about me</span>
+          <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+        </button>
+      </div>
+  </section>
+
+  <section class="my-20 max-w-[900px] mx-auto px-5 lg:px-0">
+    <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+      <h2 class="text-3xl font-bold tracking-tight mb-8">
+        Things I Build With
+      </h2>
+
+      <div class="grid gap-6 sm:grid-cols-2">
+        <!-- Card -->
+        <div class="relative border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+          <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
+              <img
+              src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+              alt="Tailwind CSS"
+              class="h-6 w-6"
+            />
+            Tailwind
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            I use Tailwind because it helps me focus on layout and spacing without overthinking design details. Styling feels faster
+            and more consistent, especially when I want to experiment, tweak things, and see results quickly.
+          </p>
+          <!-- icons bottom right -->
+<div class="absolute bottom-4 right-4 flex gap-3 text-red-400">
+    <i class="fa-regular fa-heart "></i>
+  </div>
+        </div>
+        <div class="border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+          <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
+            <i class="fa-brands fa-js text-yellow-400"></i>
+            JavaScript
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            JavaScript allows me to add small interactions and logic to my pages, such as handling user actions or updating content dynamically.
+            it’s what makes a website feel alive instead of just a static page.
+          </p>
+        </div>
+        <div class="border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+          <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-database text-orange-400"></i>
+            Firebase
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            I use Firebase when I need simple backend features without setting up a full server. It’s helpful for things like basic authentication
+            or storing data, so I can spend more time building rather than dealing with configuration.
+          </p>
+        </div>
+        <div class="border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+          <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
+            <i class="fa-brands fa-react text-cyan-400"></i>
+            React
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            I’m currently exploring React to better understand how modern user interfaces are structured. I like how component-based
+            thinking helps keep things organized and easier to manage as a project grows, even though I’m still getting comfortable
+            with it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+      <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+    <div class=" max-w-[900px] mx-auto px-5 lg:px-0">
+      <h1 class="text-slate-100 text-md text-[20px] font-bold tracking-tight py-5">
+        Let's Connect
+        <i class="fa-solid fa-link text-[20px]"></i>
+      </h1>
+      <h2 class="text-slate-100 text-lg pb-3">Feel free to connect with me on media social platforms <i class="fa-solid fa-paper-plane text-red-400"></i></h2>
+      <span class="text-gray-400 text-base font-inter tracking-tight">I’m always happy to connect and share experiences.
+        <br> If you’d like to keep in touch or follow my work,
+        <br> you can find me on my social media platforms below
+        <br>
+        <span class="space-x-6">
+          <a href="#" class="group text-gray-500 transition duration-300 hover:text-white">
+            <i class="fa-brands fa-linkedin text-[20px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+          </a>
+          <a href="#" class="group text-gray-500 transition duration-300 hover:text-white">
+            <i class="fa-brands fa-instagram text-[20px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+          </a>
+          <a href="#" class="group text-gray-500 transition duration-300 hover:text-white">
+            <i class="fa-brands fa-discord text-[20px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+          </a>
+          <a href="#" class="group text-gray-500 transition duration-300 hover:text-white">
+            <i class="fa-brands fa-github text-[20px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+          </a>
+        </span>
+    </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mt-32 border-t border-gray-800">
+  <div class="max-w-[900px] mx-auto px-5 lg:px-0 py-12">
+
+    <div class="flex flex-col sm:flex-row gap-10 text-lg font-inter">
+      <div>
+        <a class="block text-gray-600 font-semibold hover:text-white" href="about.html">About</a>
+        <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="#">Project</a>
+      </div>
+
+      <div>
+        <a class="block text-gray-600 font-semibold hover:text-white" href="comment.html">GuestBook</a>
+        <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="about.html#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="mt-8 text-sm">
+        <button
+          id="backToTop"
+          class="flex items-center gap-2 text-gray-500 hover:text-white transition group"
+        >
+          <i class="fa-solid fa-arrow-up text-xs transition-transform duration-300 group-hover:-translate-y-1"></i>
+          Back to top
+        </button>
+      </div>
+
+    <div class="mt-10 text-sm font-semibold text-gray-500">
+      <span>©2025</span>
+      <span class="mx-1">Bagas Bintang Kara</span>
+      <span class="text-gray-400">• Bandung, Indonesia</span>
+
+      <span
+        id="online-dot"
+        class="inline-block w-3 h-3 rounded-full bg-gray-700 ml-2 align-middle"
+      ></span>
+    </div>
+
+
+  </div>
+</footer>
+
+  <!--java script jangan di otak atik lagi bagas anj-->
+  <script>
+    const greetings = [
+      "مرحبا",
+      "नमस्ते",
+      "你好",
+      "Hola",
+      "Ciao",
+      "Bonjour",
+      "こんにちは",
+      "안녕하세요",
+      "Hello",
+      "Привет",
+      "Hej",
+      "Γειά σας",
+      "Cześć",
+      "สวัสดี",
+      "Xin chào",
+      "Jambo",
+      "Kumusta",
+      "Szi",
+      "Woy Hideung"
+    ];
+
+    const greetingElement = document.getElementById("greeting");
+
+    //animasi untuk hero-title muncul saat di refresh, susah banget anjing buatnya kon
+    window.addEventListener("load", () => {
+      const heroTitle = document.getElementById("hero-title");
+
+      setTimeout(() => {
+        heroTitle.classList.remove("opacity-0", "translate-y-6");
+        heroTitle.classList.add("opacity-100", "translate-y-0");
+      }, 300);
+    });
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-10");
+            entry.target.classList.add("opacity-100", "translate-y-0");
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.3
+      }
+    );
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+
+    // ambil index random saat pertama load
+    let index = Math.floor(Math.random() * greetings.length);
+    greetingElement.textContent = greetings[index];
+
+    setInterval(() => {
+      greetingElement.classList.add("opacity-0");
+
+      setTimeout(() => {
+        index = (index + 1) % greetings.length;
+        greetingElement.textContent = greetings[index];
+        greetingElement.classList.remove("opacity-0");
+      }, 500);
+
+    }, 5000);
+
+    //logo aktif
+    const onlineDot = document.getElementById("online-dot");
+
+    function updateOnlineStatus() {
+      const now = new Date();
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+
+      const isOnline =
+        (hour > 9 && hour < 21) || // 10:00 - 20:59
+        (hour === 21 && minute === 0); // tepat 21:00
+
+      if (isOnline) {
+        onlineDot.className =
+          "inline-block w-3 h-3 rounded-full bg-green-400 animate-pulse shadow-[0_0_10px_#4ade80]";
+      } else {
+        onlineDot.className =
+          "inline-block w-3 h-3 rounded-full bg-gray-700";
+      }
+    }
+
+    // pertama kali load
+    updateOnlineStatus();
+
+    // update tiap 30 detik (biar hemat, kita bukan NASA)
+    setInterval(updateOnlineStatus, 30000);
 
     
-    <script src="./main.js"></script>
+  const backToTop = document.getElementById("backToTop");
 
-    <span id="egg" class="flex absolute right-5 text-xs outline-none mr-[200px] hover:text-green-400" onclick="easterEgg()">Hoo!</span>
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
 
-
-    <footer class="pt-[350px]">
-        <hr class="mx-[50px] border-gray-800 blur-1px">
-        <div class="flex justify-start">
-        <div class="py-[30px] px-[65px] text-sm pl-[70px]">
-            <a class="text-indigo-600 font-extralight hover:text-white active:text-indigo-600" href="about.html">about</a><br>
-            <a class="text-gray-600 font-extralight hover:text-white active:text-indigo-600" href="#">project</a><br>
-        </div> 
-
-        <div class="py-[30px] px-[65px] text-sm pl-[70px]">
-            <a class="text-gray-600 font-light hover:text-white active:text-indigo-600" href="#">message</a><br>
-            <a class="text-gray-600 font-light hover:text-white active:text-indigo-600" href="#">contact</a>
-        </div>
-    </div>
-    </footer>
-
-
-    <script src="./main.js"></script>
-
-
-    <!-- <footer class="pt-[450px]">
-        <div class="my-[-100px]">
-        <hr class="mx-[50px] border-gray-800 blur-1xl">
-        <div class="pt-5 flex">
-        <a href="contact.html" class="text-gray-400 font-thin pl-[100px]">contact</a><br>
-        <a href="about.html" class="text-gray-400 font-thin pl-[100px]">about</a>
-        </div>
-    </footer> -->
-
+  </script>
 </body>
 
 </html>

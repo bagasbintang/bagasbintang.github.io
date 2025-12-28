@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Comment Section</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ini penghubung firebase nya gas jangan lupa -->
+  <script type="module" src="comment.js"></script>
+</head>
+
+<body class="bg-gray-100 p-6">
+
+  <div class="max-w-xl mx-auto bg-white p-4 rounded shadow">
+    <h1 class="text-xl font-bold mb-4">Komentar</h1>
+
+    <input id="name" class="border p-2 w-full mb-2" placeholder="Nama">
+    <textarea id="message" class="border p-2 w-full mb-2" placeholder="Komentar"></textarea>
+
+    <button id="send" class="bg-blue-600 text-white px-4 py-2 rounded">
+      Kirim
+    </button>
+
+    <div id="comments" class="mt-6 space-y-4"></div>
+  </div>
+
+</body>
+</html>

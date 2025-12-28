@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Comment Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+  <div class="max-w-xl mx-auto bg-white p-4 rounded shadow">
+    <h1 class="text-xl font-bold mb-4">Komentar</h1>
+
+    <button id="loginGoogle" class="bg-red-600 text-white px-4 py-2 rounded mb-4">
+      Login dengan Google
+    </button>
+
+    <input id="name" class="border p-2 w-full mb-2" placeholder="Nama" disabled>
+    <textarea id="message" class="border p-2 w-full mb-2" placeholder="Komentar" disabled></textarea>
+    <button id="send" class="bg-blue-600 text-white px-4 py-2 rounded" disabled>Kirim</button>
+
+    <div id="comments" class="mt-6 space-y-4"></div>
+  </div>
+
+  <script type="module">
+    // FIREBASE CONFIG & IMPORT
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      onSnapshot,
+      query,
+      orderBy,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBbBQTF9vKHZW6cx5QCCsswyytPoC5bFKQ",
+      authDomain: "bagas-site-comment.firebaseapp.com",
+      projectId: "bagas-site-comment",
+      storageBucket: "bagas-site-comment.firebasestorage.app",
+      messagingSenderId: "183060203238",
+      appId: "1:183060203238:web:e6dd527c6e2702353b1d27"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const commentsRef = collection(db, "comments");
+    const commentsBox = document.getElementById("comments");
+    const btn = document.getElementById("send");
+    const loginBtn = document.getElementById("loginGoogle");
+    const nameInput = document.getElementById("name");
+    const messageInput = document.getElementById("message");
+
+    let currentUser = null;
+
+    // LOGIN GOOGLE
+    loginBtn.addEventListener("click", async () => {
+      try {
+        await signInWithPopup(auth, provider);
+      } catch(err) {
+        console.error(err);
+      }
+    });
+
+    // CEK AUTH STATE
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        currentUser = user;
+        loginBtn.style.display = "none";
+        nameInput.value = user.displayName;
+        nameInput.disabled = true;
+        messageInput.disabled = false;
+        btn.disabled = false;
+      } else {
+        currentUser = null;
+        loginBtn.style.display = "block";
+        nameInput.value = "";
+        nameInput.disabled = true;
+        messageInput.disabled = true;
+        btn.disabled = true;
+      }
+    });
+
+    // KIRIM KOMENTAR
+    btn.addEventListener("click", async () => {
+      const message = messageInput.value;
+      if (!currentUser || !message) return;
+
+      await addDoc(commentsRef, {
+        uid: currentUser.uid,
+        name: currentUser.displayName,
+        photo: currentUser.photoURL,
+        message,
+        createdAt: serverTimestamp()
+      });
+
+      messageInput.value = "";
+    });
+
+    // REALTIME KOMENTAR
+    const q = query(commentsRef, orderBy("createdAt", "desc"));
+    onSnapshot(q, (snapshot) => {
+      commentsBox.innerHTML = "";
+      snapshot.forEach((doc) => {
+        const c = doc.data();
+
+        let time = "mengirim...";
+        if (c.createdAt) {
+          const date = c.createdAt.toDate();
+          time = date.toLocaleString("id-ID", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+          });
+        }
+
+        commentsBox.innerHTML += `
+          <div class="border p-3 rounded flex gap-3">
+            <img src="${c.photo}" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <strong>${c.name}</strong>
+              <p class="text-sm text-gray-500">${time}</p>
+              <p>${c.message}</p>
+            </div>
+          </div>
+        `;
+      });
+    });
+  </script>
+</body>
+</html>
