@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 img, button, a {
-  -webkit-tap-highlight: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
