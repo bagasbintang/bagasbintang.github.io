@@ -939,6 +939,10 @@ video {
   max-width: 1024px;
 }
 
+.max-w-\[700px\] {
+  max-width: 700px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1458,6 +1462,11 @@ video {
 .px-\[50px\] {
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.px-\[\] {
+  padding-left: ;
+  padding-right: ;
 }
 
 .pb-24 {
@@ -2048,6 +2057,10 @@ img, button, a {
     width: 500px;
   }
 
+  .sm\:w-\[10px\] {
+    width: 10px;
+  }
+
   .sm\:max-w-\[350px\] {
     max-width: 350px;
   }
@@ -2057,6 +2070,18 @@ img, button, a {
   }
 
   .sm\:max-w-full {
+    max-width: 100%;
+  }
+
+  .sm\:max-w-\[70\%\] {
+    max-width: 70%;
+  }
+
+  .sm\:max-w-\[50\%\] {
+    max-width: 50%;
+  }
+
+  .sm\:max-w-\[100\%\] {
     max-width: 100%;
   }
 

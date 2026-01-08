@@ -61,13 +61,13 @@
 
 
   <!-- COMMENT SECTION -->
-  <section class="max-w-[1000px] mx-auto px-5 lg:px-0 py-20 font-inter">
+  <section class="max-w-[900px] mx-auto px-5 lg:px-0 py-20 font-inter">
 
     <!-- COMMENTS LIST -->
     <div id="comments" class="space-y-0 mb-10 max-h-[60vh] lg:mx-auto lg:max-h-[950px] overflow-y-auto pr-4 w-full scroll-smooth bg-black"></div>
 
     <!-- LOGIN NOTICE -->
-    <div id="loginNotice" class=" py-5 bg-black border-none rounded-md px-[120px] mx-5">
+    <div id="loginNotice" class="py-5 bg-black border-none rounded-md mx-5">
       <h1 class="text-lg font-semibold text-center text-gray-300 mb-4">
         Login required to comment
         <p class="text-sm font-semibold text-gray-500">Sign your info.. then i'll probably sell it to aliens, kidding :D"</p>
@@ -120,12 +120,12 @@
       <div class="flex flex-col sm:flex-row gap-10 text-lg font-inter">
         <div>
           <a class="block text-gray-600 font-semibold hover:text-white" href="index.html">Home</a>
-          <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="project.html">Project</a>
+          <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="about.html">About</a>
         </div>
 
         <div>
-          <a class="block text-gray-600 font-semibold hover:text-white" href="about.html">About</a>
-          <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="about.html#contact">Contact</a>
+          <a class="block text-gray-600 font-semibold hover:text-white" href="project.html">Project</a>
+          <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="more.html">More</a>
         </div>
       </div>
 
@@ -339,7 +339,7 @@ function formatMessage(text) {
   ${isAdmin ? '<span class="text-[15px] px-1 py-0 text-indigo-500 font-semibold bg-gray-900 h-6 rounded-full">Contributor</span>' : ""}   
   ${time ? `<span class="text-[13px] py-1 text-gray-500">${time}</span>` : ""}
 </div>
-              <p class="inline-block text-sm sm:max-w-full lg:max-w-[100%] rounded-lg rounded-tl-none
+              <p class="inline-block text-sm sm:max-w-[100%] lg:max-w-[100%] rounded-lg rounded-tl-none
                px-3 py-2.5 bg-gray-800 text-left break-words whitespace-pre-wrap leading-snug">${formatMessage(c.message)}</p>
             </div>
           </div>
