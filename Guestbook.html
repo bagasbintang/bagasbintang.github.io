@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>home</title>
+  <title>Guestbook</title>
   <link rel="stylesheet" href="dist/output.css">
   <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
@@ -20,103 +20,94 @@
 
   <!-- NAVBAR -->
   <nav class="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md shadow-2xl z-50 text-white">
-      <div class="max-w-[950px] mx-auto px-5 lg:px-0 py-6">
-        <div class="flex items-center justify-between relative mt-[10px]">
-  
-          <!-- LEFT ICON -->
-          <a class="group flex items-center gap-2 text-slate-100 font-semibold tracking-tight hover:text-red-300" href="index.html">
-            <i class="fa-solid fa-arrow-left fa-md transition-transform duration-300 group-hover:-translate-x-1"></i>
-          </a>
-  
-          <!-- CENTER LOGO -->
-          <i class="fa-solid fa-comments fa-xl absolute-left-1/2-translate-x-1/2" alt="Logo"></i>
-  
-          <!-- MENU -->
-          <div class="hidden lg:flex space-x-6 font-light text-sm">
-            <a href="about.html" class="hover:text-gray-300">About</a>
-            <a href="about.html" class="hover:text-gray-300">Project</a>
-            <a href="googleauth.html" class="hover:text-gray-300">GuestBook</a>
-            <a href="#" class="hover:text-gray-300">More</a>
-          </div>
-        </div>
-  
-      </div>
-    </nav>
+    <div class="max-w-[950px] mx-auto px-5 lg:px-0 py-6">
+      <div class="flex items-center justify-between relative mt-[10px]">
 
-    <!-- HERO -->
-  <section class="pt-[190px] text-white">
-      <div class="max-w-[900px] mx-auto px-5 lg:px-0">
-        <div class="flex flex-col items-start lg:items-start">
-          
-            <h1 class="flex items-center gap-3 text-slate-100 text-[clamp(3rem,4.5vw,3.5rem)] leading-tight font-extrabold font-inter">
-              <span class="tracking-tight">GuestBook</span>
-            </h1>
-            <span class="flex items-center gap-3 text-slate-400 text-xl leading-tight font-bold font-inter -mt-2 tracking-tight">
-              Feel free to leave a short note or feedback
-            </span>
-          </div>
+        <!-- BACK ICON -->
+        <a class="group flex items-center gap-2 text-slate-100 font-semibold tracking-tight hover:text-red-300" href="#" onclick="history.back(); return false;">
+          <i class="fa-solid fa-arrow-left fa-md transition-transform duration-300 group-hover:-translate-x-1"></i>
+        </a>
+
+        <!-- CENTER LOGO -->
+        <i class="fa-solid fa-comments fa-xl absolute-left-1/2-translate-x-1/2" alt="Logo"></i>
+
+        <!-- MENU -->
+        <div class="hidden lg:flex space-x-6 font-inter font-semibold text-sm text-gray-400">
+          <a href="about.html" class="hover:text-slate-100">About</a>
+          <a href="project.html" class="hover:text-slate-100">Project</a>
+          <a href="Guestbook.html" class="text-slate-100 pointer-events-none">GuestBook</a>
+          <a href="#" class="hover:text-slate-100">More</a>
         </div>
       </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-[130px] text-white">
+      <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+    <div class="max-w-[900px] mx-auto px-5 lg:px-0">
+      <div class="flex flex-col items-start lg:items-start">
+        <h1 class="flex items-center gap-3 text-slate-100 text-[clamp(3rem,4.5vw,3.5rem)] leading-tight font-extrabold font-inter">
+          <span class="tracking-tight">GuestBook</span>
+        </h1>
+        <span class="flex items-center gap-3 text-slate-400 text-lg leading-tight font-semibold font-inter mt-2">
+          Feel free to leave a short note or feedback
+        </span>
       </div>
-    </section>
+    </div>
+    </div>
+  </section>
 
 
-    <!-- COMMENT SECTION -->
-<section class="max-w-[1000px] mx-auto px-5 lg:px-0 py-20 font-inter">
+  <!-- COMMENT SECTION -->
+  <section class="max-w-[1000px] mx-auto px-5 lg:px-0 py-20 font-inter">
 
     <!-- COMMENTS LIST -->
     <div id="comments" class="space-y-0 mb-10 max-h-[60vh] lg:mx-auto lg:max-h-[950px] overflow-y-auto pr-4 w-full scroll-smooth bg-black"></div>
-  
+
     <!-- LOGIN NOTICE -->
-    <h1 class="text-lg font-semibold text-center text-gray-300 mb-4">
-      Login required to comment
-      <p class="text-sm font-semibold text-gray-500">Sign your info.. then i'll probably sell it to aliens, kidding :D"</p>
-    </h1>
-  
-    <!-- LOGIN BUTTONS -->
-    <div class="flex justify-center gap-4 mb-8">
-      <button
-        id="loginGoogle"
-        class="flex items-center gap-2 bg-slate-200 text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-white transition">
-        Sign in with
-        <i class="fa-brands fa-google text-black text-sm"></i>
-      </button>
-  
-      <button
-        id="loginGithub"
-        class="flex items-center gap-2 bg-slate-200 text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-white transition">
-        Sign in with
-        <i class="fa-brands fa-github text-black text-sm"></i>
-      </button>
-    </div>
-  
-    <!-- COMMENT FORM -->
-    <div id="commentForm" class="space-y-3 hidden">
-      <input
-        id="name"
-        class="w-full bg-transparent border border-gray-700 rounded-md px-3 py-2 text-sm text-gray-300 focus:outline-none focus:border-gray-500"
-        placeholder="Name"
-        disabled>
-  
-      <textarea
-        id="message"
-        rows="2"
-        class="w-full bg-transparent border border-gray-700 rounded-md px-3 py-1 text-sm text-gray-300 focus:outline-none focus:border-gray-500 leading-snug resize-none result required
-        " placeholder="Comment"
-        disabled>
-      </textarea>
-  
-      <button
-        id="send"
-        class="bg-slate-100 px-4 py-2 rounded-md text-sm font-semibold hover:bg-slate-500 transition disabled:opacity-40"
-        disabled>
-        <i class="fa-solid fa-paper-plane text-slate-900"></i>
+    <div id="loginNotice" class=" py-5 bg-black border-none rounded-md px-[120px] mx-5">
+      <h1 class="text-lg font-semibold text-center text-gray-300 mb-4">
+        Login required to comment
+        <p class="text-sm font-semibold text-gray-500">Sign your info.. then i'll probably sell it to aliens, kidding :D"</p>
+      </h1>
+
+      <!-- LOGIN BUTTONS -->
+      <div class="flex justify-center gap-4 mb-8">
+        
+        <button id="loginGoogle" class="w-full sm:w-full flex-1 min-w-[120px] flex items-center gap-2 bg-slate-200 text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-white transition">
+          Sign in with
+          <i class="fa-brands fa-google text-black text-sm"></i>
         </button>
 
-      <button id="logout" class="bg-slate-100 px-4 py-2  rounded-md text-sm text-slate-900 font-semibold hover:bg-slate-500 transition hidden">
-        Logout
-      <i class="fa-solid fa-right-from-bracket"></i>
+        <button id="loginGithub" class="w-full sm:w-full flex-1 min-w-[120px] flex items-center gap-2 bg-slate-200 text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-white transition">
+          Sign in with
+          <i class="fa-brands fa-github text-black text-sm"></i>
+        </button>
+    </div>
+    </div>
+
+    <!-- COMMENT FORM -->
+    <div id="commentForm" class="space-y-3 hidden">
+      <input id="name" class="w-full bg-transparent border border-gray-700 rounded-md px-3 py-2 text-sm text-gray-300 focus:outline-none focus:border-gray-500 font-bold"
+        placeholder="Name" disabled>
+
+      <textarea id="message" rows="2" required class="w-full bg-transparent border border-gray-700 rounded-md px-3 py-1 text-sm text-gray-300 focus:outline-none focus:border-gray-500 leading-snug resize-none" placeholder="Comment" disabled>
+      </textarea>
+
+      <div class="py-5 space-x-2">
+
+      <button id="send" class="bg-slate-100 px-4 py-2 rounded-md text-sm font-semibold hover:bg-slate-500 transition disabled:opacity-40"
+        disabled>
+        <i class="fa-solid fa-paper-plane text-slate-900"></i>
       </button>
+
+      <button id="logout" class="bg-slate-100 px-2 py-2  rounded-md text-sm text-slate-900 font-semibold hover:bg-slate-500 transition hidden">
+        Logout
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
     </div>
   </section>
 
@@ -124,153 +115,180 @@
 
   <!-- FOOTER -->
   <footer class="mt-32 border-t border-gray-800">
-      <div class="max-w-[900px] mx-auto px-5 lg:px-0 py-12">
-  
-        <div class="flex flex-col sm:flex-row gap-10 text-lg font-inter">
-          <div>
-            <a class="block text-gray-600 font-semibold hover:text-white" href="index.html">Home</a>
-            <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="#">Project</a>
-          </div>
-  
-          <div>
-            <a class="block text-gray-600 font-semibold hover:text-white" href="comment.html">GuestBook</a>
-            <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="about.html#contact">Contact</a>
-          </div>
+    <div class="max-w-[900px] mx-auto px-5 lg:px-0 py-12">
+
+      <div class="flex flex-col sm:flex-row gap-10 text-lg font-inter">
+        <div>
+          <a class="block text-gray-600 font-semibold hover:text-white" href="index.html">Home</a>
+          <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="project.html">Project</a>
         </div>
-  
-        <div class="mt-8 text-sm">
+
+        <div>
+          <a class="block text-gray-600 font-semibold hover:text-white" href="about.html">About</a>
+          <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="about.html#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="mt-8 text-sm py-10">
           <button id="backToTop" class="flex items-center gap-2 text-gray-500 hover:text-white transition group">
             <i class="fa-solid fa-arrow-up text-xs transition-transform duration-300 group-hover:-translate-y-1"></i>
             Back to top
           </button>
         </div>
   
-        <div class="mt-5 text-sm font-semibold text-gray-500">
-          <span>©2024</span>
-          <span class="mx-1">Bagas Bintang Kara</span>
-          <span class="text-gray-400">• Bandung, Indonesia</span>
-          <span id="online-dot" class="inline-block w-3 h-3 rounded-full bg-gray-700 ml-2 align-middle"></span>
-        </div>
+        <span class="text-gray-300">©BagasKara</span>
   
+        <span class="inline-flex items-center gap-2 ml-2">
+          <!-- DOT -->
+          <span id="online-dot" class="relative flex h-3 w-3">
+            <span id="online-ping" class="absolute inline-flex h-full w-full rounded-full opacity-75"></span>
+            <span id="online-core" class="relative inline-flex h-3 w-3 rounded-full"></span>
+          </span>
   
-      </div>
-    </footer>
+          <!-- TEXT -->
+          <span id="online-text" class="text-sm font-medium text-gray-400">
+            Checking…
+          </span>
+        </span>
+  
+        <span class="mx-1">• 2025</span>
+        <span class="text-gray-400">• 📍 Bandung, Indonesia</span>
+
+
+    </div>
+  </footer>
 
 </body>
+<script type="module">
+  // FIREBASE CONFIG & IMPORT
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    onSnapshot,
+    query,
+    orderBy,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 
-  <script type="module">
-    // FIREBASE CONFIG & IMPORT
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-    import {
-      getFirestore,
-      collection,
-      addDoc,
-      onSnapshot,
-      query,
-      orderBy,
-      serverTimestamp
-    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+  import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    onAuthStateChanged,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
-    import {
-      getAuth,
-      GoogleAuthProvider,
-      signInWithPopup,
-      onAuthStateChanged,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyBbBQTF9vKHZW6cx5QCCsswyytPoC5bFKQ",
+    authDomain: "bagas-site-comment.firebaseapp.com",
+    projectId: "bagas-site-comment",
+    storageBucket: "bagas-site-comment.firebasestorage.app",
+    messagingSenderId: "183060203238",
+    appId: "1:183060203238:web:e6dd527c6e2702353b1d27"
+  };
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyBbBQTF9vKHZW6cx5QCCsswyytPoC5bFKQ",
-      authDomain: "bagas-site-comment.firebaseapp.com",
-      projectId: "bagas-site-comment",
-      storageBucket: "bagas-site-comment.firebasestorage.app",
-      messagingSenderId: "183060203238",
-      appId: "1:183060203238:web:e6dd527c6e2702353b1d27"
-    };
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+  const commentsRef = collection(db, "comments");
+  const commentsBox = document.getElementById("comments");
+  const btn = document.getElementById("send");
+  const logoutBtn = document.getElementById("logout");
+  const loginBtn = document.getElementById("loginGoogle");
+  const loginGithub = document.getElementById("loginGithub")
+  const nameInput = document.getElementById("name");
+  const messageInput = document.getElementById("message");
 
-    const commentsRef = collection(db, "comments");
-    const commentsBox = document.getElementById("comments");
-    const btn = document.getElementById("send");
-    const logoutBtn = document.getElementById("logout");
-    const loginBtn = document.getElementById("loginGoogle");
-    const loginGithub = document.getElementById("loginGithub")
-    const nameInput = document.getElementById("name");
-    const messageInput = document.getElementById("message");
+  let currentUser = null;
+  const commentForm = document.getElementById("commentForm");
+  const loginNotice = document.getElementById("loginNotice");
 
-    let currentUser = null;
+  //@
+  const escapeHTML = (str) =>
+  str.replace(/[&<>"']/g, m =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m])
+  );
 
-    const commentForm = document.getElementById("commentForm");
+function formatMessage(text) {
+  return escapeHTML(text).replace(
+    /@([^\s]+)/g,
+    '<span class="text-indigo-400 font-semibold">@$1</span>'
+  );
+}
 
-    // LOGIN GOOGLE
-    loginBtn.addEventListener("click", async () => {
-      try {
-        const result = await signInWithPopup(auth, provider);
-        const user = result.user;
 
-        currentUser = user;
-        loginBtn.style.display ="none";
-        loginGithub.style.display ="none";
-        nameInput.value = user.displayName;
-        nameInput.disabled = true;
 
-        commentForm.classList.remove("hidden");
-        messageInput.disabled = false;
-        btn.disabled = false;
-      } catch(err) {
-        console.error(err);
-      }
-    });
+  // LOGIN GOOGLE
+  loginBtn.addEventListener("click", async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
 
-    // CEK AUTH STATE
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        currentUser = user;
-        loginBtn.style.display = "none";
-        loginGithub.style.display ="none";
-        nameInput.value = user.displayName;
-        nameInput.disabled = true;
-        commentForm.classList.remove("hidden");
-        logoutBtn.classList.remove("hidden")
-        messageInput.disabled = false;
-        btn.disabled = false;
-      } else {
-        currentUser = null;
-        loginBtn.style.display = "block";
-        loginGithub.style.display = "block";
-        commentForm.classList.add("hidden");
-        logoutBtn.classList.add("hidden");
-        nameInput.value = "";
-        nameInput.disabled = true;
-        messageInput.disabled = true;
-        btn.disabled = true;
-      }
-    });
+      currentUser = user;
+      loginBtn.style.display = "none";
+      loginGithub.style.display = "none";
+      nameInput.value = user.displayName;
+      nameInput.disabled = true;
 
-    //send 
-
-  btn.addEventListener("click", async () => {
-  const message = messageInput.value.trim();
-  if (!currentUser || !message) return;
-
-  await addDoc(commentsRef, {
-    uid: currentUser.uid,
-    name: currentUser.displayName,
-    photo: currentUser.photoURL,
-    message,
-    createdAt: serverTimestamp()
+      commentForm.classList.remove("hidden");
+      messageInput.disabled = false;
+      btn.disabled = false;
+    } catch (err) {
+      console.error(err);
+    }
   });
 
-  messageInput.value = "";
-});
+  // CEK AUTH STATE
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      currentUser = user;
+      loginBtn.style.display = "none";
+      loginGithub.style.display = "none";
+      loginNotice.style.display = "none";
+      nameInput.value = user.displayName;
+      nameInput.disabled = true;
+      commentForm.classList.remove("hidden");
+      logoutBtn.classList.remove("hidden")
+      messageInput.disabled = false;
+      btn.disabled = false;
+    } else {
+      currentUser = null;
+      loginBtn.style.display = "block";
+      loginGithub.style.display = "block";
+      loginNotice.style.display = "block";
+      commentForm.classList.add("hidden");
+      logoutBtn.classList.add("hidden");
+      nameInput.value = "";
+      nameInput.disabled = true;
+      messageInput.disabled = true;
+      btn.disabled = true;
+    }
+  });
+
+  //send 
+
+  btn.addEventListener("click", async () => {
+    const message = messageInput.value.trim();
+    if (!currentUser || !message) return;
+
+    await addDoc(commentsRef, {
+      uid: currentUser.uid,
+      name: currentUser.displayName,
+      photo: currentUser.photoURL,
+      message,
+      createdAt: serverTimestamp()
+    });
+
+    messageInput.value = "";
+  });
 
   //logout
-  logoutBtn.addEventListener("click",async() => {
-    try{
+  logoutBtn.addEventListener("click", async () => {
+    try {
       await signOut(auth);
     } catch (err) {
       console.error(err);
@@ -278,54 +296,125 @@
   });
 
 
+  // REALTIME KOMENTAR
+  const q = query(commentsRef, orderBy("createdAt", "asc"));
 
-
-  
-    // REALTIME KOMENTAR
-    const q = query(commentsRef, orderBy("createdAt", "asc"));
-
-    commentsBox.innerHTML = `
+  commentsBox.innerHTML = `
     <p class="text-sm text-gray-500 text-center">
       Loading comments..this was faster in my head
     </p>
     `;
 
 
-    onSnapshot(q, (snapshot) => {
-      commentsBox.innerHTML = "";
-      snapshot.forEach((doc) => {
-        const c = doc.data();
+  onSnapshot(q, (snapshot) => {
+    commentsBox.innerHTML = "";
+    snapshot.forEach((doc) => {
+      const c = doc.data();
 
-        let time = "";
-        if (c.createdAt && window.innerWidth >= 1024) {
-          const date = c.createdAt.toDate();
-          time = date.toLocaleString("id-ID", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit"
-          });
-        }
+      let time = "";
+      if (c.createdAt && window.innerWidth >= 1024) {
+        const date = c.createdAt.toDate();
+        time = date.toLocaleString("id-ID", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      }
 
-        const isAuthor = currentUser && c.uid === currentUser.uid;
-        //admin
-        commentsBox.innerHTML += `
+      
+
+      const ADMIN_UID = "ZuxdsiPjLpaxMHwMPKQ5CrYRzyU2";
+      const isAdmin = c.uid === ADMIN_UID;
+
+      //admin
+      commentsBox.innerHTML += `
           <div class="border border-black rounded-lg hover:border-gray-800 p-4 flex gap-3 bg-black min-w-0 font-inter">
             <img src="${c.photo}" class="w-10 h-10 rounded-full object-cover">
             <div class="flex-1 max-w-[900px]">
 
               <div class="flex items-left gap-2">
   <strong>${c.name}</strong>
-  ${isAuthor ?'<span class="text-[15px] px-1 py-0.5 text-indigo-500 font-semibold rounded-full">Contributor</span>':""}   
-  ${time ? `<span class="text-[13px] py-0.5 text-gray-500">${time}</span>` : ""}
+  ${isAdmin ? '<span class="text-[15px] px-1 py-0 text-indigo-500 font-semibold bg-gray-900 h-6 rounded-full">Contributor</span>' : ""}   
+  ${time ? `<span class="text-[13px] py-1 text-gray-500">${time}</span>` : ""}
 </div>
-              <p class="inline-block text-sm max-w-[250px] lg:max-w-[100%] rounded-lg rounded-tl-none
-               px-3 py-2.5 bg-gray-700 text-left break-words whitespace-pre-wrap leading-snug">${c.message}</p>
+              <p class="inline-block text-sm sm:max-w-full lg:max-w-[100%] rounded-lg rounded-tl-none
+               px-3 py-2.5 bg-gray-800 text-left break-words whitespace-pre-wrap leading-snug">${formatMessage(c.message)}</p>
             </div>
           </div>
         `;;
-      });
     });
-  </script>
+  });
+
+
+
+  //ping footer
+  const dotCore = document.getElementById("online-core");
+    const ping = document.getElementById("online-ping");
+    const text = document.getElementById("online-text");
+
+    function updateOnlineStatus() {
+      const now = new Date();
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+
+      const isOnline =
+        (hour >= 10 && hour < 21) ||
+        (hour === 21 && minute === 0);
+
+      if (isOnline) {
+        text.textContent = "Online";
+        text.className = "text-sm font-medium text-green-400";
+
+        dotCore.className =
+          "relative inline-flex h-3 w-3 rounded-full bg-green-400";
+        ping.className =
+          "absolute inline-flex h-full w-full rounded-full bg-green-400 animate-ping opacity-75";
+      } else {
+        text.textContent = "Offline";
+        text.className = "text-sm font-medium text-gray-500";
+
+        dotCore.className =
+          "relative inline-flex h-3 w-3 rounded-full bg-gray-600";
+        ping.className = "hidden";
+      }
+    }
+
+    updateOnlineStatus();
+    setInterval(updateOnlineStatus, 30000);
+
+
+
+const backToTop = document.getElementById("backToTop");
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+const reveals = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("opacity-0", "translate-y-10");
+        entry.target.classList.add("opacity-100", "translate-y-0");
+
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.3
+  }
+);
+
+reveals.forEach(el => revealObserver.observe(el));
+
+</script>
+
 </html>
