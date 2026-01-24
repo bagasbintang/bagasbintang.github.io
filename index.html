@@ -5,6 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   <title>Home</title>
   <link rel="stylesheet" href="dist/output.css">
   <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous"></script>
@@ -12,35 +20,222 @@
     rel="stylesheet">
 </head>
 
-<body id="body" class="bg-black text-white flex flex-col min-h-screen font-inter max-w-screen-lg mx-auto px-4 lg:px-0">
+<body id="body" class="bg-white text-gray-900 dark:bg-black dark:text-gray-100 flex flex-col min-h-screen font-inter max-w-screen-lg mx-auto px-4 lg:px-0">
 
 
   <!-- NAVBAR -->
-  <nav class="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md shadow-1xl z-50">
-    <div class="max-w-[950px] mx-auto px-5 lg:px-0 py-6">
-      <div class="flex items-center justify-between">
-
-        <!-- LEFT ICON -->
-        <a href="#">
-          <i class="fa-sharp fa-regular fa-b fa-lg lg:fa-xl hover:text-indigo-700"></i>
-        </a>
-
+  <nav class="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md shadow-1xl z-[70]">
+    <div class="max-w-[900px] mx-auto px-5 lg:px-0 py-6">
+      <div class="relative flex items-center">
+          <!-- BACK ICON -->
+        <a class="group flex items-center gap-2 text-transparent dark:text-transparent pointer-events-none">
+            <i class="fa-solid fa-arrow-left fa-md transition-transform duration-300 group-hover:-translate-x-1"></i>
+          </a>
+         <!-- Theme Icon -->
+          <button class="theme-toggle left-0 absolute flex items-center gap-2 hidden lg:block
+             text-2xl font-semibold text-pink-300 dark:text-yellow-500
+             hover:text-gray-500 dark:hover:text-gray-500 transition ml-[200px]">
+            <i class="theme-icon fa-solid fa-sun"></i>
+          </button>
         <!-- CENTER LOGO -->
-        <img src="./gambar/Bagas' new logo black none.png" class="h-8 lg:h-10 absolute-left-1/2-translate-x-1/2" alt="Logo">
+        <img src="./gambar/Bagas' new logo black none.png" class="h-8 absolute left-1/2 -translate-x-1/2 lg:h-10 z-10 pointer-events-none select-none block dark:hidden"
+          alt="Logo">
+          <img src="./gambar/Bagas' new logo white-none.png" class="h-8 absolute left-1/2 -translate-x-1/2 lg:h-10 z-10 pointer-events-none select-none hidden dark:block"
+          alt="Logo">
+
+
+        <!--hamburger menu-->
+        <button id="menuBtn" class="group lg:hidden ml-auto relative z-[60] flex flex-col items-end space-y-1 right-4">
+          <span class="stairs-line w-6"></span>
+          <span class="stairs-line w-4"></span>
+          <span class="stairs-line w-2"></span>
+        </button>
 
         <!-- MENU -->
-        <div class="hidden lg:flex space-x-6 font-inter font-semibold text-gray-400 text-sm">
-          <a href="about.html" class="hover:text-slate-100 hover:bg-gray-300 h-0.5">About</a>
-          <a href="project.html" class="hover:text-slate-100">Project</a>
-          <a href="Guestbook.html" class="hover:text-slate-100">GuestBook</a>
-          <a href="#" class="hover:text-gray-300">More</a>
+        <div class="hidden lg:flex ml-auto space-x-6 font-inter font-semibold text-gray-400 text-sm">
+          <a href="about.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
+                   after:content-['']
+                   after:absolute after:left-0 after:-bottom-1
+                   after:h-[2px] after:w-0
+                   dark:after:bg-white after:bg-indigo-500
+                   after:transition-all after:duration-300
+                   hover:after:w-full">
+            About
+          </a>
+          <a href="project.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
+                after:content-['']
+                after:absolute after:left-0 after:-bottom-1
+                after:h-[2px] after:w-0
+                dark:after:bg-white after:bg-indigo-500
+                after:transition-all after:duration-300
+                hover:after:w-full">
+            Project
+          </a>
+          <a href="Guestbook.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
+             after:content-['']
+             after:absolute after:left-0 after:-bottom-1
+             after:h-[2px] after:w-0
+             dark:after:bg-white after:bg-indigo-500
+             after:transition-all after:duration-300
+             hover:after:w-full">
+            GuestBook
+          </a>
+          <a href="more.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
+          after:content-['']
+          after:absolute after:left-0 after:-bottom-1
+          after:h-[2px] after:w-0
+          dark:after:bg-white after:bg-indigo-500
+          after:transition-all after:duration-300
+          hover:after:w-full">
+            More
+          </a>
         </div>
       </div>
-
-
-
     </div>
   </nav>
+
+
+  <!-- MOBILE MENU CARD -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 flex items-center justify-center
+       opacity-0 pointer-events-none transition-opacity duration-100">
+    <div class="w-[400px] max-h-[37vh] overflow-y-auto pr-1
+         rounded-xl bg-white dark:bg-black/90 shadow-2xl
+         p-6 flex flex-col gap-6">
+
+
+      <!-- MENU LINKS -->
+      <div class="flex flex-col gap-0 text-left font-medium font-light font-inter">
+
+
+        <!-- CLOSE BUTTON -->
+        <button class="ml-auto mx-2 -mt-3
+         text-gray-500 hover:text-gray-700
+         dark:hover:text-white
+         transition" aria-label="Close menu" id="closeMobileMenu">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+
+
+
+        <p class="text-sm text-gray-400">Pages
+          <i class="fa-solid fa-code-branch"></i>
+        </p>
+
+
+        <a href="index.html" class="group flex items-center
+          text-gray-800 dark:text-gray-100
+          py-2 px-3 rounded-md
+          bg-gray-100 dark:bg-gray-900
+          transition duration-100 pointer-events-none">
+
+          <i class="fa-solid fa-house-user
+            text-gray-400
+            transition-transform duration-100
+            scale-105
+            text-slate-400"></i>
+
+          <span class="ml-2">Home</span>
+
+          
+          <span class="ml-auto relative h-3 w-3">
+            <span class="absolute inset-0
+                 rounded-full bg-gray-500 dark:bg-gray-300
+                 animate-ping opacity-75"></span>
+            <span class="absolute inset-0
+                 rounded-full bg-indigo-500 dark:bg-red-300"></span>
+          </span>
+
+        </a>
+
+
+
+        <a href="about.html" class="text-gray-500 dark:text-gray-500
+             hover:text-gray-800 dark:hover:text-gray-100 transition py-2 border-none hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md group transition duration-100">
+
+          <i class="fa-solid fa-leaf fa-md mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-green-800"></i>
+          About
+
+        </a>
+
+        <a href="project.html" class="text-gray-500 dark:text-gray-500
+             hover:text-gray-800 dark:hover:text-gray-100 transition py-2 border border-none hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md group transition duration-100">
+          <i class="fa-solid fa-laptop fa-sm mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-indigo-500"></i>
+          Project
+
+        </a>
+
+        <a href="Guestbook.html" class="text-gray-500 dark:text-gray-500
+        hover:text-gray-800 dark:hover:text-gray-100 transition py-2 border-none hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md group transition duration-100">
+          <i class="fa-solid fa-message fa-md mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-violet-400"></i>
+          GuestBook
+
+        </a>
+
+        <a href="more.html" class="text-gray-500 dark:text-gray-500
+        hover:text-gray-800 dark:hover:text-gray-100 transition py-2 border-none hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md group transition duration-100">
+          <i class="fa-solid fa-carrot fa-md mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-orange-400"></i>
+          More
+
+        </a>
+
+        <hr class="h-px border-0 bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600 my-3">
+
+        <p class="text-sm text-gray-400">Connect
+          <i class="fa-solid fa-link"></i>
+        </p>
+        <div class="flex flex-col gap-0 text-left font-medium font-light font-inter">
+
+          <a href="mailto:bagasbintangt029472@gmail.com" class="group text-gray-500 transition duration-100 dark:hover:text-gray-100 hover:text-black py-2 border-none dark:hover:bg-gray-900 hover:bg-gray-100 rounded-md">
+            <i class="fa-solid fa-at fa-sm mx-1 transition-transform duration-100 group-hover:scale-105"></i>
+            Email
+          </a>
+
+          <a href="https://www.linkedin.com/in/bagas-bintang-b5180834b?trk=contact-info" class="group text-gray-500 transition duration-100 dark:hover:text-gray-100 hover:text-black py-2 border-none dark:hover:bg-gray-900 hover:bg-gray-100 rounded-md">
+            <i class="fa-brands fa-linkedin fa-sm mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-blue-500"></i>
+            LinkedIn
+
+          </a>
+
+          <a href="https://github.com/bagasbintang" class="group text-gray-500 transition duration-100 dark:hover:text-gray-100 hover:text-black py-2 border-none dark:hover:bg-gray-900 rounded-md">
+            <i class="fa-brands fa-github fa-sm mx-1 transition-transform duration-100 group-hover:scale-105"></i>
+            Github
+          </a>
+
+          <a href="https://www.instagram.com/bxtchofthesea?igsh=MWoxNnd6dHI5NmV5ag==" class="group text-gray-500 transition duration-100 dark:hover:text-gray-100 hover:text-black py-2 border-none dark:hover:bg-gray-900 hover:bg-gray-100 rounded-md">
+            <i class="fa-brands fa-instagram
+           text-gray-400 transition-transform duration-100 group-hover:scale-105 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent mx-1"></i>
+            Instagram
+
+          </a>
+          <a href="https://discordapp.com/users/1398203953602236446" class="group text-gray-500 transition duration-100 dark:hover:text-100 dark:hover:text-gray-100 hover:text-black py-2 border-none dark:hover:bg-gray-900 hover:bg-gray-100 rounded-md">
+            <i class="fa-brands fa-discord fa-sm mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-indigo-500"></i>
+            Discord
+
+          </a>
+        </div>
+      </div>
+      <hr class="relative right-2 overflow-hidden border-t border-gray-300 dark:border-gray-800">
+
+
+      <!-- DIVIDER -->
+      <div class="h-px w-full bg-gray-200 dark:bg-gray-700"></div>
+
+      <!-- THEME TOGGLE -->
+      <button class="theme-toggle ml-auto flex items-center gap-2 pr-5
+           text-sm font-semibold text-gray-500
+           hover:text-indigo-500 dark:hover:text-red-300 transition">
+        <i class="theme-icon fa-solid fa-sun"></i>
+        Theme
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- OVERLAY -->
+  <div id="mobileMenuOverlay" style="touch-action: none" class="fixed inset-0 bg-black/40 dark:bg-white/20 opacity-0 pointer-events-none transition-opacity duration-300 z-40 backdrop-blur-sm">
+  </div>
+
 
   <!-- HERO -->
   <section class="pt-40">
@@ -48,17 +243,20 @@
       <div class="flex flex-col items-start lg:items-start">
         <img src="./gambar/pakuon.png" class="h-[90px] lg:h-[90px] rounded-full cursor-pointer
                        transition-transform duration-300 ease-out
-                       hover:scale-110 my-6 focus:outline-none active:outline-none select-none" alt="Bagas Profile">
+                       hover:scale-110 my-6 focus:outline-none active:outline-none select-none hidden dark:block" alt="Bagas Profile">
+        <img src="./gambar/WhatsApp Image 2026-01-17 at 9.27.41 PM.png" class="h-[90px] lg:h-[90px] rounded-full cursor-pointer
+                       transition-transform duration-300 ease-out
+                       hover:scale-110 my-6 focus:outline-none active:outline-none select-none block dark:hidden" alt="Bagas Profile2">
         <h1 class="text-slate-100 font-extrabold text-[clamp(1.875rem,4vw,3rem)] font-inter">
-          <span class=" w-[120px] text-left text-red-300 transition-opacity duration-500 tracking-tight" id="greeting">Hello</span>
+          <span class=" w-[120px] text-left text-indigo-500 dark:text-red-300 transition-opacity duration-500 tracking-tight" id="greeting">Hello</span>
         </h1>
         <div id="hero-title" class="opacity-0 translate-y-6 transition-all duration-700 ease-out">
-          <h1 class="flex items-center gap-3 text-slate-100 text-[clamp(1.875rem,4vw,3rem)] leading-tight font-bold font-inter">
+          <h1 class="flex items-center gap-3 text-gray-900 dark:text-slate-100 text-[clamp(1.875rem,4vw,3rem)] leading-tight font-bold font-inter">
             <span class="tracking-tight">I'm Bagas Bintang.</span>
             <br>
           </h1>
 
-          <span class="flex items-center gap-3 text-slate-100 text-[clamp(1.875rem,4vw,3rem)] leading-tight font-bold font-inter -mt-2 tracking-tight">
+          <span class="flex items-center gap-3 text-gray-500 dark:text-slate-400 text-[clamp(1.875rem,4vw,3rem)] leading-tight font-bold font-inter -mt-2 tracking-tight">
             Learner &amp; Thinker
 
             <!-- Ping -->
@@ -69,33 +267,33 @@
         </div>
 
 
-        <h1 class="py-5 text-gray-400 font-inter text-base">
+        <h1 class="py-5 text-gray-600 dark:text-gray-400 font-inter text-base">
           Interested in
-          <b class="text-slate-100 text-md">Hands-on work</b>,
-          <b class="text-slate-100 text-md">Continuous learning</b>,
+          <b class="text-slate-900 dark:text-slate-100 text-md">Hands-on work</b>,
+          <b class="text-slate-900 dark:text-slate-100 text-md">Continuous learning</b>,
           <br> and
-          <b class="text-slate-100 text-md">Building real-world skill</b> through practical experience.
+          <b class="text-slate-900 dark:text-slate-100 text-md">Building real-world skill</b> through practical experience.
         </h1>
 
         <div class="flex flex-wrap gap-4 mt-6">
           <!-- Button 1 -->
-          <button id="thingsbuildwith" class="relative px-3 sm:px-4 py-1.5  sm:py-2 border border-gray-700 rounded-md bg-black text-white font-semibold transition-all duration-200
+          <button id="gotolearnmore" class="relative px-3 sm:px-4 py-1.5  sm:py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white text-gray-900 dark:bg-black dark:text-slate-100 font-semibold transition-all duration-200
                              hover:border-gray-500 hover:translate-y-1 hover:shadow-md">
             Learn More
           </button>
 
           <!-- Button 2 -->
-          <button class="relative px-3 sm:px-4 py-1.5 border border-gray-700 rounded-md bg-black text-white font-semibold transition-all duration-200
+          <button class="relative px-3 sm:px-4 py-1.5 border border-gray-300 dark:border-gray-700 rounded-md bg-white text-gray-900 dark:bg-black dark:text-slate-100 font-semibold transition-all duration-200
                              hover:border-gray-500 hover:translate-y-1 hover:shadow-md">
-            <a href="about.html">
+            <a href="./about.html">
               More About Me
             </a>
           </button>
 
           <!-- Button Comment -->
-          <button class="relative px-3 sm:px-4 py-1.5 border border-gray-700 rounded-md bg-black text-white font-semibold transition-all duration-200
-                             hover:border-gray-500 hover:translate-y-1 hover:shadow-md">
-            <a href="/Guestbook.html">
+          <button class="relative px-3 sm:px-4 py-1.5 border border-gray-300 dark:border-gray-700 rounded-md bg-white text-gray-900 dark:bg-black dark:text-slate-100 font-semibold transition-all duration-200
+                             hover:border-gray-500 hover:translate-y-1 hover:shadow-lg">
+            <a href="./Guestbook.html">
               <i class="fa-regular fa-comment"></i>
             </a>
 
@@ -106,15 +304,15 @@
   </section>
   <section class="pt-80">
     <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
-      <hr class="mx-[50px] border-gray-800">
+      <hr class="h-px border-0 bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600">
       <div class="max-w-[900px] mx-auto px-5 lg:px-0">
-        <h1 class="text-slate-100 text-[clamp(1.875rem,4vw,3rem)] font-bold tracking-tight py-5">
+        <h1 class="dark:text-slate-100 text-gray-900 text-[clamp(1.875rem,4vw,3rem)] font-bold tracking-tight py-5">
           What I'm focusing on
-          <i class="fa-brands fa-squarespace"></i>
+          <i class="fa-solid fa-thumbtack text-3xl px-3"></i>
         </h1>
-        <h2 class="text-slate-100 text-lg pb-3">I'm currently focusing on:</h2>
-        <span class="text-gray-400 text-base font-semibold font-inter tracking-tight">
-          <span class="text-slate-100 text-md font-inter tracking-tight">
+        <h2 class="dark:text-slate-100 text-gray-900 text-lg pb-3">I'm currently focusing on:</h2>
+        <span class="dark:text-gray-400 text-gray-500 text-base font-semibold font-inter tracking-tight">
+          <span class="dark:text-slate-100 text-gray-900 text-md font-inter tracking-tight">
             • Improving my communication skills,
             <br> • enhancing my practical work discipline,
             <br> • and developing my personal and professional abilities.
@@ -129,26 +327,28 @@
 
       <!-- button know more about me dibawah-->
       <div class="flex justify-center gap-4 mt-6">
-        <button class="group flex items-center gap-2 px-4 py-10 text-slate-100 text-md font-semibold tracking-tight hover:text-red-300">
+        <button class="group flex items-center gap-2 px-4 py-10 dark:text-slate-100 text-gray-900 text-md font-semibold tracking-tight hover:text-indigo-500 dark:hover:text-red-300">
           <a href="about.html">Know more about me</a>
           <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
         </button>
       </div>
   </section>
 
+  <hr class="h-px border-0 bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600">
+
   <section class="my-20 max-w-[900px] mx-auto px-5 lg:px-0">
-    <div id="thingsbuildwith" class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+    <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
       <h2 class="text-3xl font-bold tracking-tight mb-8">
         Things I Build With
       </h2>
 
       <div class="grid gap-6 sm:grid-cols-2">
         <!-- Card -->
-        <div class="relative border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+        <div class="relative border dark:border-gray-800 border-gray-300 rounded-xl p-6 dark:hover:border-gray-600 hover:border-gray-400 transition">
           <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
             <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" class="h-6 w-6" /> Tailwind
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="dark:text-gray-400 text-gray-900 text-sm leading-relaxed">
             I use Tailwind because it helps me focus on layout and spacing without overthinking design details. Styling feels faster
             and more consistent, especially when I want to experiment, tweak things, and see results quickly.
           </p>
@@ -158,31 +358,31 @@
             <i class="fa-regular fa-heart "></i>
           </div>
         </div>
-        <div class="border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+        <div class="border dark:border-gray-800 border-gray-300 rounded-xl p-6 dark:hover:border-gray-600 hover:border-gray-400 transition">
           <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
             <i class="fa-brands fa-js text-yellow-400"></i>
             JavaScript
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="dark:text-gray-400 text-gray-900 text-sm leading-relaxed">
             JavaScript allows me to add small interactions and logic to my pages, such as handling user actions or updating content dynamically.
             it’s what makes a website feel alive instead of just a static page.
           </p>
         </div>
-        <div class="border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+        <div class="border dark:border-gray-800 border-gray-300 rounded-xl p-6 dark:hover:border-gray-600 hover:border-gray-400 transition">
           <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
-            <img src="./gambar/Firebase-icon-Logo-PNG-SVG-Vector.png" class="h-6 w-5"> Firebase
+            <img src="./gambar/Firebase-icon-Logo-PNG-SVG-Vector.png" class="h-5 w-4"> Firebase
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="dark:text-gray-400 text-gray-900 text-sm leading-relaxed">
             I use Firebase when I need simple backend features without setting up a full server. It’s helpful for things like basic authentication
             or storing data, so I can spend more time building rather than dealing with configuration.
           </p>
         </div>
-        <div class="border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+        <div class="border dark:border-gray-800 border-gray-300 rounded-xl p-6 dark:hover:border-gray-600 hover:border-gray-400 transition">
           <h3 class="text-lg font-semibold mb-2 flex items-center gap-2">
             <i class="fa-brands fa-react text-cyan-400"></i>
             React
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="dark:text-gray-400 text-gray-900 text-sm leading-relaxed">
             I’m currently exploring React to better understand how modern user interfaces are structured. I like how component-based
             thinking helps keep things organized and easier to manage as a project grows, even though I’m still getting comfortable
             with it.
@@ -193,38 +393,45 @@
   </section>
 
   <div class="flex justify-center gap-4 mt-6">
-    <button class="group flex items-center gap-2 px-4 py-10 text-slate-100 text-md font-semibold tracking-tight hover:text-red-300">
+    <button class="group flex items-center gap-2 px-4 py-10 dark:text-slate-100 text-gray-900 text-md font-semibold tracking-tight dark:hover:text-red-300 hover:text-indigo-500">
       <a href="project.html">More</a>
       <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
     </button>
   </div>
 
+  <hr class="h-px border-0 bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600 my-4">
+
   <section>
     <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
-      <div class=" max-w-[900px] mx-auto px-5 lg:px-0">
-        <h1 class="text-slate-100 text-md text-[20px] font-bold tracking-tight py-5">
+      <div class="max-w-[900px] mx-auto px-5 lg:px-0">
+        <h1 class="dark:text-slate-100 text-gray-900 text-md text-[20px] font-bold tracking-tight py-5">
           Let's Connect
           <i class="fa-solid fa-link text-[20px]"></i>
         </h1>
-        <h2 class="text-slate-100 text-lg pb-3">Feel free to connect with me on media social platforms
+        <h2 class="dark:text-slate-100 text-gray-900 text-lg pb-3">Feel free to connect with me on media social platforms
           <i class="fa-solid fa-paper-plane text-red-400"></i>
         </h2>
-        <span class="text-gray-400 text-base font-inter tracking-tight">I’m always happy to connect and share experiences.
+        <span class="dark:text-gray-400 text-gray-500 text-base font-inter tracking-tight">I’m always happy to connect and share experiences.
           <br> If you’d like to keep in touch or follow my work,
           <br> you can find me on my social media platforms below
           <br>
           <span class="space-x-6">
-            <a href="#" class="group text-gray-500 transition duration-300 hover:text-white">
-              <i class="fa-brands fa-linkedin text-[20px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+              <a href="mailto:bagasbintant029472@gmail.com" class="group text-gray-500 transition duration-300 hover:text-green-500">
+                <i class="fa-regular fa-at text-[25px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+              </a>
+            <a href="https://www.linkedin.com/in/bagas-bintang-b5180834b?trk=contact-info" class="group text-gray-500 transition duration-300 hover:text-blue-400">
+              <i class="fa-brands fa-linkedin text-[25px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
             </a>
-            <a href="#" class="group text-gray-500 transition duration-300 hover:text-white">
-              <i class="fa-brands fa-instagram text-[20px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+            <a href="https://github.com/bagasbintang" class="group text-gray-500 transition duration-300 dark:hover:text-white hover:text-black">
+              <i class="fa-brands fa-github text-[25px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
             </a>
-            <a href="#" class="group text-gray-500 transition duration-300 hover:text-white">
-              <i class="fa-brands fa-discord text-[20px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+            <a href="https://www.instagram.com/bxtchofthesea?igsh=MWoxNnd6dHI5NmV5ag==" class="group text-gray-500 transition duration-300 hover:text-red-400">
+              <i class="fa-brands fa-instagram text-[25px] pt-10
+           text-gray-500 transition-transform duration-300 group-hover:scale-110 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 
+           group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent"></i>
             </a>
-            <a href="https://github.com/bagasbintang" class="group text-gray-500 transition duration-300 hover:text-white">
-              <i class="fa-brands fa-github text-[20px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
+            <a href="https://discordapp.com/users/1398203953602236446" class="group text-gray-500 transition duration-300 hover:text-indigo-500">
+              <i class="fa-brands fa-discord text-[25px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
             </a>
           </span>
       </div>
@@ -232,52 +439,145 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="mt-32 border-t border-gray-800">
-    <div class="max-w-[900px] mx-auto px-5 lg:px-0 py-12">
+
+  <footer class="relative mt-32 overflow-hidden border-t border-gray-300 dark:border-gray-800">
+
+
+    <!-- Background Image -->
+    <img src="./gambar/batik by bagas-01.png" alt="Footer background" class="absolute inset-x-0 top-0 w-full h-full object-cover opacity-20">
+
+    <!-- Fade Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-white dark:from-black via-white/80 dark:via-black/70 to-transparent"></div>
+
+    <!-- Footer Content -->
+    <div class="relative z-10 max-w-[900px] mx-auto px-5 lg:px-0 py-16">
 
       <div class="flex flex-col sm:flex-row gap-10 text-lg font-inter">
         <div>
-          <a class="block text-gray-600 font-semibold hover:text-white" href="about.html">About</a>
-          <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="project.html">Project</a>
+          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold" href="about.html">About</a>
+          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold mt-2" href="project.html">Project</a>
         </div>
 
         <div>
-          <a class="block text-gray-600 font-semibold hover:text-white" href="Guestbook.html">GuestBook</a>
-          <a class="block text-gray-600 font-semibold hover:text-white mt-2" href="more.html">More</a>
+          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold" href="Guestbook.html">GuestBook</a>
+          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold mt-2" href="more.html">More</a>
         </div>
       </div>
 
-      <div class="mt-8 text-sm py-10">
-        <button id="backToTop" class="flex items-center gap-2 text-gray-500 hover:text-white transition group">
+      <div class="mt-10 text-sm">
+        <button id="backToTop" class="flex items-center gap-2 text-gray-400 hover:text-gray-900 dark:hover:text-white transition group">
           <i class="fa-solid fa-arrow-up text-xs transition-transform duration-300 group-hover:-translate-y-1"></i>
           Back to top
         </button>
       </div>
 
-      <span class="text-gray-300">©BagasKara</span>
+      <div class="mt-10 flex flex-wrap items-center gap-2 text-sm text-gray-400">
+        <span class="dark:text-gray-300">©BagasKara</span>
 
-      <span class="inline-flex items-center gap-2 ml-2">
         <!-- DOT -->
-        <span id="online-dot" class="relative flex h-3 w-3">
+        <span class="relative flex h-3 w-3 ml-1">
           <span id="online-ping" class="absolute inline-flex h-full w-full rounded-full opacity-75"></span>
           <span id="online-core" class="relative inline-flex h-3 w-3 rounded-full"></span>
         </span>
 
-        <!-- TEXT -->
-        <span id="online-text" class="text-sm font-medium text-gray-400">
-          Checking…
-        </span>
-      </span>
-
-      <span class="mx-1">• 2025</span>
-      <span class="text-gray-400">• 📍 Bandung, Indonesia</span>
-
-
+        <span id="online-text">Checking…</span>
+        <span>• 2025</span>
+        <span>• 📍 Bandung, Indonesia</span>
+      </div>
     </div>
   </footer>
 
   <!--java script jangan di otak atik lagi bagas anj-->
   <script>
+
+    const root = document.documentElement;
+    const themeToggles = document.querySelectorAll(".theme-toggle");
+    const themeIcons = document.querySelectorAll(".theme-icon");
+
+    // load saved theme
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      root.classList.remove("dark");
+      themeIcons.forEach(icon => {
+        icon.className = "theme-icon fa-solid fa-moon";
+      });
+    }
+
+    function toggleTheme() {
+      const isDark = root.classList.contains("dark");
+
+      if (isDark) {
+        root.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        themeIcons.forEach(icon => {
+          icon.className = "theme-icon fa-solid fa-moon";
+        });
+      } else {
+        root.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        themeIcons.forEach(icon => {
+          icon.className = "theme-icon fa-solid fa-sun";
+        });
+      }
+    }
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileOverlay = document.getElementById("mobileMenuOverlay");
+
+    //closemenu
+
+    function closeMenu() {
+      mobileMenu.classList.add("opacity-0", "pointer-events-none");
+      mobileOverlay.classList.add("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "";
+    }
+
+    const closeBtn = document.getElementById("closeMobileMenu");
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeMenu);
+    }
+
+
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    if (menuBtn && mobileMenu && mobileOverlay) {
+      menuBtn.addEventListener("click", () => {
+        const isOpen = !mobileMenu.classList.contains("opacity-0");
+
+        // toggle menu
+        mobileMenu.classList.toggle("opacity-0", isOpen);
+        mobileMenu.classList.toggle("pointer-events-none", isOpen);
+
+        // toggle overlay
+        mobileOverlay.classList.toggle("opacity-0", isOpen);
+        mobileOverlay.classList.toggle("pointer-events-none", isOpen);
+
+        // scroll lock
+        document.body.style.overflow = isOpen ? "" : "hidden";
+      });
+    }
+
+    mobileOverlay.addEventListener("click", closeMenu);
+
+    const mobileCard = mobileMenu.querySelector(".w-80");
+    if (mobileCard) {
+      mobileCard.addEventListener("click", e => {
+        e.stopPropagation();
+      });
+    }
+
+
+    // pasang event ke SEMUA tombol
+    themeToggles.forEach(btn => {
+      btn.addEventListener("click", toggleTheme);
+    });
+
+
     const greetings = [
       "مرحبا",
       "नमस्ते",
@@ -294,10 +594,10 @@
       "Cześć",
       "สวัสดี",
       "Xin chào",
+      "Hai",
       "Jambo",
       "Kumusta",
-      "Szi",
-      "Woy Hideung"
+      "Szi"
     ];
 
     const greetingElement = document.getElementById("greeting");
@@ -347,11 +647,11 @@
       }, 500);
 
     }, 5000);
-     
-     //ping footer
+
+    //ping footer
     const dotCore = document.getElementById("online-core");
     const ping = document.getElementById("online-ping");
-    const text = document.getElementById("online-text");
+    const onlineText = document.getElementById("online-text");
 
     function updateOnlineStatus() {
       const now = new Date();
@@ -363,16 +663,16 @@
         (hour === 21 && minute === 0);
 
       if (isOnline) {
-        text.textContent = "Online";
-        text.className = "text-sm font-medium text-green-400";
+        onlineText.textContent = "Online";
+        onlineText.className = "text-sm font-medium text-green-400";
 
         dotCore.className =
           "relative inline-flex h-3 w-3 rounded-full bg-green-400";
         ping.className =
           "absolute inline-flex h-full w-full rounded-full bg-green-400 animate-ping opacity-75";
       } else {
-        text.textContent = "Offline";
-        text.className = "text-sm font-medium text-gray-500";
+        onlineText.textContent = "Offline";
+        onlineText.className = "text-sm font-medium text-gray-500";
 
         dotCore.className =
           "relative inline-flex h-3 w-3 rounded-full bg-gray-600";
@@ -394,14 +694,19 @@
     });
 
 
-    const thingsBuild = document.getElementById("thingsbuildwith");
+    const learnmore = document.getElementById("gotolearnmore");
 
-    thingsBuild.addEventListener("click", () => {
+    learnmore.addEventListener("click", () => {
       window.scrollTo({
         top: 900,
         behavior: "smooth"
       });
     });
+
+    window.addEventListener("pageshow", () => {
+  const theme = localStorage.getItem("theme");
+  document.documentElement.classList.toggle("dark", theme === "dark");
+});
 
   </script>
 </body>
