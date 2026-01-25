@@ -15,7 +15,7 @@
     </script>
   <title>About</title>
   <link rel="stylesheet" href="dist/output.css">
-  <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
     rel="stylesheet">
 </head>
@@ -24,7 +24,7 @@
 
 
   <!-- NAVBAR -->
-  <nav class="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md shadow-1xl z-[70]">
+  <nav class="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md shadow-sm lg:shadow-none z-[70]">
     <div class="max-w-[900px] mx-auto px-5 lg:px-0 py-6">
       <div class="relative flex items-center">
         <!-- BACK ICON -->
@@ -39,9 +39,9 @@
           </button>
         <!-- CENTER LOGO -->
         <img src="./gambar/Bagas' new logo black none.png" class="h-8 absolute left-1/2 -translate-x-1/2 lg:h-10 z-10 pointer-events-none select-none block dark:hidden"
-          alt="Logo">
+          alt="Logo" fetchpriority="high" decoding="async">
         <img src="./gambar/Bagas' new logo white-none.png" class="h-8 absolute left-1/2 -translate-x-1/2 lg:h-10 z-10 pointer-events-none select-none hidden dark:block"
-          alt="Logo">
+          alt="Logo" fetchpriority="high" decoding="async">
 
 
         <!--hamburger menu-->
@@ -246,7 +246,7 @@
 
           <div class="">
             <img src="./gambar/Unknown.jpeg" class="w-[250px] h-[250px] object-cover rounded-xl cursor-pointer
-                     transition-transform duration-300 ease-out hover:scale-105 border border-gray-100 dark:border-none" alt="Bagas Profile">
+                     transition-transform duration-300 ease-out hover:scale-105 border border-gray-100 dark:border-none" alt="Bagas Profile" decoding="async" fetchpriority="high">
 
             <div class="flex relative gap-8 mx-[30px] -mt-[35px] px-10  bg-red-transparent backdrop-blur-md border-black rounded-full">
               <a href="#" class="group text-slate-100 transition duration-300 hover:text-blue-400 mt-1">
@@ -393,7 +393,7 @@
 
 
     <!-- Background Image -->
-    <img src="./gambar/batik by bagas-01.png" alt="Footer background" class="absolute inset-x-0 top-0 w-full h-full object-cover opacity-20">
+    <img src="./gambar/batik by bagas-01.webp" alt="Footer background" loading="lazy" decoding="async" class="absolute inset-x-0 top-0 w-full h-full object-cover opacity-20">
 
     <!-- Fade Gradient Overlay -->
     <div class="absolute inset-0 bg-gradient-to-b from-white dark:from-black via-white/80 dark:via-black/70 to-transparent"></div>
@@ -437,180 +437,8 @@
   </footer>
 
   
-  <script>
+  <script src="./js/about.js"></script>
 
-    const root = document.documentElement;
-    const themeToggles = document.querySelectorAll(".theme-toggle");
-    const themeIcons = document.querySelectorAll(".theme-icon");
-
-    // load saved theme
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      root.classList.remove("dark");
-      themeIcons.forEach(icon => {
-        icon.className = "theme-icon fa-solid fa-moon";
-      });
-    }
-
-    function toggleTheme() {
-      const isDark = root.classList.contains("dark");
-
-      if (isDark) {
-        root.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-        themeIcons.forEach(icon => {
-          icon.className = "theme-icon fa-solid fa-moon";
-        });
-      } else {
-        root.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-        themeIcons.forEach(icon => {
-          icon.className = "theme-icon fa-solid fa-sun";
-        });
-      }
-    }
-
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const mobileOverlay = document.getElementById("mobileMenuOverlay");
-
-    //closemenu
-    function closeMenu() {
-      mobileMenu.classList.add("opacity-0", "pointer-events-none");
-      mobileOverlay.classList.add("opacity-0", "pointer-events-none");
-      document.body.style.overflow = "";
-    }
-
-    const closeBtn = document.getElementById("closeMobileMenu");
-
-    if (closeBtn) {
-      closeBtn.addEventListener("click", closeMenu);
-    }
-
-
-
-    mobileMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    if (menuBtn && mobileMenu && mobileOverlay) {
-      menuBtn.addEventListener("click", () => {
-        const isOpen = !mobileMenu.classList.contains("opacity-0");
-
-        // toggle menu
-        mobileMenu.classList.toggle("opacity-0", isOpen);
-        mobileMenu.classList.toggle("pointer-events-none", isOpen);
-
-        // toggle overlay
-        mobileOverlay.classList.toggle("opacity-0", isOpen);
-        mobileOverlay.classList.toggle("pointer-events-none", isOpen);
-
-        // scroll lock
-        document.body.style.overflow = isOpen ? "" : "hidden";
-      });
-    }
-
-    mobileOverlay.addEventListener("click", closeMenu);
-
-    const mobileCard = mobileMenu.querySelector(".w-80");
-    if (mobileCard) {
-      mobileCard.addEventListener("click", e => {
-        e.stopPropagation();
-      });
-    }
-
-
-    // pasang event ke SEMUA tombol
-    themeToggles.forEach(btn => {
-      btn.addEventListener("click", toggleTheme);
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const reveals = document.querySelectorAll(".reveal");
-
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("opacity-0", "translate-y-10");
-            entry.target.classList.add("opacity-100", "translate-y-0");
-
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.3
-      }
-    );
-
-    reveals.forEach(el => revealObserver.observe(el));
-
-
-
-    //ping footer
-    const dotCore = document.getElementById("online-core");
-    const ping = document.getElementById("online-ping");
-    const text = document.getElementById("online-text");
-
-    function updateOnlineStatus() {
-      const now = new Date();
-      const hour = now.getHours();
-      const minute = now.getMinutes();
-
-      const isOnline =
-        (hour >= 10 && hour < 21) ||
-        (hour === 21 && minute === 0);
-
-      if (isOnline) {
-        text.textContent = "Online";
-        text.className = "text-sm font-medium text-green-400";
-
-        dotCore.className =
-          "relative inline-flex h-3 w-3 rounded-full bg-green-400";
-        ping.className =
-          "absolute inline-flex h-full w-full rounded-full bg-green-400 animate-ping opacity-75";
-      } else {
-        text.textContent = "Offline";
-        text.className = "text-sm font-medium text-gray-500";
-
-        dotCore.className =
-          "relative inline-flex h-3 w-3 rounded-full bg-gray-600";
-        ping.className = "hidden";
-      }
-    }
-
-    updateOnlineStatus();
-    setInterval(updateOnlineStatus, 30000);
-
-
-    const backToTop = document.getElementById("backToTop");
-
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-
-    window.addEventListener("pageshow", () => {
-  const theme = localStorage.getItem("theme");
-  document.documentElement.classList.toggle("dark", theme === "dark");
-});
-
-  </script>
 </body>
 
 

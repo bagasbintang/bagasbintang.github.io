@@ -15,7 +15,7 @@
     </script>
   <title>Home</title>
   <link rel="stylesheet" href="dist/output.css">
-  <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/47ba2857a3.js" crossorigin="anonymous" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
     rel="stylesheet">
 </head>
@@ -24,7 +24,7 @@
 
 
   <!-- NAVBAR -->
-  <nav class="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md shadow-1xl z-[70]">
+  <nav class="fixed top-0 inset-x-0 bg-transparent backdrop-blur-md shadow-sm lg:shadow-none z-[70]">
     <div class="max-w-[900px] mx-auto px-5 lg:px-0 py-6">
       <div class="relative flex items-center">
           <!-- BACK ICON -->
@@ -39,9 +39,9 @@
           </button>
         <!-- CENTER LOGO -->
         <img src="./gambar/Bagas' new logo black none.png" class="h-8 absolute left-1/2 -translate-x-1/2 lg:h-10 z-10 pointer-events-none select-none block dark:hidden"
-          alt="Logo">
+          alt="Logo" fetchpriority="high" decoding="async">
           <img src="./gambar/Bagas' new logo white-none.png" class="h-8 absolute left-1/2 -translate-x-1/2 lg:h-10 z-10 pointer-events-none select-none hidden dark:block"
-          alt="Logo">
+          alt="Logo" fetchpriority="high" decoding="async">
 
 
         <!--hamburger menu-->
@@ -243,10 +243,10 @@
       <div class="flex flex-col items-start lg:items-start">
         <img src="./gambar/pakuon.png" class="h-[90px] lg:h-[90px] rounded-full cursor-pointer
                        transition-transform duration-300 ease-out
-                       hover:scale-110 my-6 focus:outline-none active:outline-none select-none hidden dark:block" alt="Bagas Profile">
+                       hover:scale-110 my-6 focus:outline-none active:outline-none select-none hidden dark:block" alt="Bagas Profile1" decoding="async" fetchpriority="high">
         <img src="./gambar/WhatsApp Image 2026-01-17 at 9.27.41 PM.png" class="h-[90px] lg:h-[90px] rounded-full cursor-pointer
                        transition-transform duration-300 ease-out
-                       hover:scale-110 my-6 focus:outline-none active:outline-none select-none block dark:hidden" alt="Bagas Profile2">
+                       hover:scale-110 my-6 focus:outline-none active:outline-none select-none block dark:hidden" alt="Bagas Profile2" decoding="async" fetchpriority="high">
         <h1 class="text-slate-100 font-extrabold text-[clamp(1.875rem,4vw,3rem)] font-inter">
           <span class=" w-[120px] text-left text-indigo-500 dark:text-red-300 transition-opacity duration-500 tracking-tight" id="greeting">Hello</span>
         </h1>
@@ -444,7 +444,7 @@
 
 
     <!-- Background Image -->
-    <img src="./gambar/batik by bagas-01.png" alt="Footer background" class="absolute inset-x-0 top-0 w-full h-full object-cover opacity-20">
+    <img src="./gambar/batik by bagas-01.webp" alt="Footer background" loading="lazy" decoding="async" class="absolute inset-x-0 top-0 w-full h-full object-cover opacity-20">
 
     <!-- Fade Gradient Overlay -->
     <div class="absolute inset-0 bg-gradient-to-b from-white dark:from-black via-white/80 dark:via-black/70 to-transparent"></div>
@@ -486,229 +486,7 @@
       </div>
     </div>
   </footer>
-
-  <!--java script jangan di otak atik lagi bagas anj-->
-  <script>
-
-    const root = document.documentElement;
-    const themeToggles = document.querySelectorAll(".theme-toggle");
-    const themeIcons = document.querySelectorAll(".theme-icon");
-
-    // load saved theme
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      root.classList.remove("dark");
-      themeIcons.forEach(icon => {
-        icon.className = "theme-icon fa-solid fa-moon";
-      });
-    }
-
-    function toggleTheme() {
-      const isDark = root.classList.contains("dark");
-
-      if (isDark) {
-        root.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-        themeIcons.forEach(icon => {
-          icon.className = "theme-icon fa-solid fa-moon";
-        });
-      } else {
-        root.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-        themeIcons.forEach(icon => {
-          icon.className = "theme-icon fa-solid fa-sun";
-        });
-      }
-    }
-
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const mobileOverlay = document.getElementById("mobileMenuOverlay");
-
-    //closemenu
-
-    function closeMenu() {
-      mobileMenu.classList.add("opacity-0", "pointer-events-none");
-      mobileOverlay.classList.add("opacity-0", "pointer-events-none");
-      document.body.style.overflow = "";
-    }
-
-    const closeBtn = document.getElementById("closeMobileMenu");
-
-    if (closeBtn) {
-      closeBtn.addEventListener("click", closeMenu);
-    }
-
-
-
-    mobileMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    if (menuBtn && mobileMenu && mobileOverlay) {
-      menuBtn.addEventListener("click", () => {
-        const isOpen = !mobileMenu.classList.contains("opacity-0");
-
-        // toggle menu
-        mobileMenu.classList.toggle("opacity-0", isOpen);
-        mobileMenu.classList.toggle("pointer-events-none", isOpen);
-
-        // toggle overlay
-        mobileOverlay.classList.toggle("opacity-0", isOpen);
-        mobileOverlay.classList.toggle("pointer-events-none", isOpen);
-
-        // scroll lock
-        document.body.style.overflow = isOpen ? "" : "hidden";
-      });
-    }
-
-    mobileOverlay.addEventListener("click", closeMenu);
-
-    const mobileCard = mobileMenu.querySelector(".w-80");
-    if (mobileCard) {
-      mobileCard.addEventListener("click", e => {
-        e.stopPropagation();
-      });
-    }
-
-
-    // pasang event ke SEMUA tombol
-    themeToggles.forEach(btn => {
-      btn.addEventListener("click", toggleTheme);
-    });
-
-
-    const greetings = [
-      "مرحبا",
-      "नमस्ते",
-      "你好",
-      "Hola",
-      "Ciao",
-      "Bonjour",
-      "こんにちは",
-      "안녕하세요",
-      "Hello",
-      "Привет",
-      "Hej",
-      "Γειά σας",
-      "Cześć",
-      "สวัสดี",
-      "Xin chào",
-      "Hai",
-      "Jambo",
-      "Kumusta",
-      "Szi"
-    ];
-
-    const greetingElement = document.getElementById("greeting");
-
-    //animasi untuk hero-title muncul saat di refresh, susah banget anjing buatnya kon
-    window.addEventListener("load", () => {
-      const heroTitle = document.getElementById("hero-title");
-
-      setTimeout(() => {
-        heroTitle.classList.remove("opacity-0", "translate-y-6");
-        heroTitle.classList.add("opacity-100", "translate-y-0");
-      }, 300);
-    });
-
-    const reveals = document.querySelectorAll(".reveal");
-
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("opacity-0", "translate-y-10");
-            entry.target.classList.add("opacity-100", "translate-y-0");
-
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.3
-      }
-    );
-
-    reveals.forEach(el => revealObserver.observe(el));
-
-
-    // ambil index random saat pertama load
-    let index = Math.floor(Math.random() * greetings.length);
-    greetingElement.textContent = greetings[index];
-
-    setInterval(() => {
-      greetingElement.classList.add("opacity-0");
-
-      setTimeout(() => {
-        index = (index + 1) % greetings.length;
-        greetingElement.textContent = greetings[index];
-        greetingElement.classList.remove("opacity-0");
-      }, 500);
-
-    }, 5000);
-
-    //ping footer
-    const dotCore = document.getElementById("online-core");
-    const ping = document.getElementById("online-ping");
-    const onlineText = document.getElementById("online-text");
-
-    function updateOnlineStatus() {
-      const now = new Date();
-      const hour = now.getHours();
-      const minute = now.getMinutes();
-
-      const isOnline =
-        (hour >= 10 && hour < 21) ||
-        (hour === 21 && minute === 0);
-
-      if (isOnline) {
-        onlineText.textContent = "Online";
-        onlineText.className = "text-sm font-medium text-green-400";
-
-        dotCore.className =
-          "relative inline-flex h-3 w-3 rounded-full bg-green-400";
-        ping.className =
-          "absolute inline-flex h-full w-full rounded-full bg-green-400 animate-ping opacity-75";
-      } else {
-        onlineText.textContent = "Offline";
-        onlineText.className = "text-sm font-medium text-gray-500";
-
-        dotCore.className =
-          "relative inline-flex h-3 w-3 rounded-full bg-gray-600";
-        ping.className = "hidden";
-      }
-    }
-
-    updateOnlineStatus();
-    setInterval(updateOnlineStatus, 30000);
-
-
-    const backToTop = document.getElementById("backToTop");
-
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-
-
-    const learnmore = document.getElementById("gotolearnmore");
-
-    learnmore.addEventListener("click", () => {
-      window.scrollTo({
-        top: 900,
-        behavior: "smooth"
-      });
-    });
-
-    window.addEventListener("pageshow", () => {
-  const theme = localStorage.getItem("theme");
-  document.documentElement.classList.toggle("dark", theme === "dark");
-});
-
-  </script>
+  <script src="./js/index.js" defer></script>
 </body>
 
 </html>
