@@ -28,9 +28,9 @@
     <div class="max-w-[900px] mx-auto px-5 lg:px-0 py-6">
       <div class="relative flex items-center">
           <!-- BACK ICON -->
-        <a class="group flex items-center gap-2 text-transparent dark:text-transparent pointer-events-none">
-            <i class="fa-solid fa-arrow-left fa-md transition-transform duration-300 group-hover:-translate-x-1"></i>
-          </a>
+          <p class="dark:bg-gradient-to-r absolute from-indigo-500 via-indigo-700 to-indigo-600 bg-clip-text text-transparent font-inter font-bold ml-3 text-[20px] tracking-tight">
+              
+            </p>
          <!-- Theme Icon -->
           <button class="theme-toggle left-0 absolute flex items-center gap-2 hidden lg:block
              text-2xl font-semibold text-pink-300 dark:text-yellow-500
@@ -52,7 +52,7 @@
         </button>
 
         <!-- MENU -->
-        <div class="hidden lg:flex ml-auto space-x-6 font-inter font-semibold text-gray-400 text-sm">
+        <div class="hidden lg:flex ml-auto space-x-6 font-inter font-semibold text-gray-400 text-sm tracking-tight">
           <a href="about.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
                    after:content-['']
                    after:absolute after:left-0 after:-bottom-1
@@ -80,14 +80,14 @@
              hover:after:w-full">
             GuestBook
           </a>
-          <a href="more.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
+          <a href="tools.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
           after:content-['']
           after:absolute after:left-0 after:-bottom-1
           after:h-[2px] after:w-0
           dark:after:bg-white after:bg-indigo-500
           after:transition-all after:duration-300
           hover:after:w-full">
-            More
+            Tools
           </a>
         </div>
       </div>
@@ -171,10 +171,10 @@
 
         </a>
 
-        <a href="more.html" class="text-gray-500 dark:text-gray-500
+        <a href="tools.html" class="text-gray-500 dark:text-gray-500
         hover:text-gray-800 dark:hover:text-gray-100 transition py-2 border-none hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md group transition duration-100">
           <i class="fa-solid fa-carrot fa-md mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-orange-400"></i>
-          More
+          Tools
 
         </a>
 
@@ -401,46 +401,95 @@
 
   <hr class="h-px border-0 bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600 my-4">
 
-  <section>
-    <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
-      <div class="max-w-[900px] mx-auto px-5 lg:px-0">
-        <h1 class="dark:text-slate-100 text-gray-900 text-md text-[20px] font-bold tracking-tight py-5">
-          Let's Connect
-          <i class="fa-solid fa-link text-[20px]"></i>
-        </h1>
-        <h2 class="dark:text-slate-100 text-gray-900 text-lg pb-3">Feel free to connect with me on media social platforms
-          <i class="fa-solid fa-paper-plane text-red-400"></i>
-        </h2>
-        <span class="dark:text-gray-400 text-gray-500 text-base font-inter tracking-tight">I’m always happy to connect and share experiences.
-          <br> If you’d like to keep in touch or follow my work,
-          <br> you can find me on my social media platforms below
-          <br>
-          <span class="space-x-6">
-              <a href="mailto:bagasbintant029472@gmail.com" class="group text-gray-500 transition duration-300 hover:text-green-500">
-                <i class="fa-regular fa-at text-[25px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
-              </a>
-            <a href="https://www.linkedin.com/in/bagas-bintang-b5180834b?trk=contact-info" class="group text-gray-500 transition duration-300 hover:text-blue-400">
-              <i class="fa-brands fa-linkedin text-[25px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
-            </a>
-            <a href="https://github.com/bagasbintang" class="group text-gray-500 transition duration-300 dark:hover:text-white hover:text-black">
-              <i class="fa-brands fa-github text-[25px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
-            </a>
-            <a href="https://www.instagram.com/bxtchofthesea?igsh=MWoxNnd6dHI5NmV5ag==" class="group text-gray-500 transition duration-300 hover:text-red-400">
-              <i class="fa-brands fa-instagram text-[25px] pt-10
-           text-gray-500 transition-transform duration-300 group-hover:scale-110 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 
-           group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent"></i>
-            </a>
-            <a href="https://discordapp.com/users/1398203953602236446" class="group text-gray-500 transition duration-300 hover:text-indigo-500">
-              <i class="fa-brands fa-discord text-[25px] pt-10 transition-transform duration-300 group-hover:scale-110"></i>
-            </a>
-          </span>
+
+
+
+  <section class="my-10">
+      <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+        <div class="max-w-[900px] mx-auto px-5 lg:px-0">
+    
+          <!-- FLEX WRAPPER -->
+          <div class="flex flex-col lg:flex-row gap-16">
+    
+            <!-- LEFT : CONNECT TEXT + ICON -->
+            <div class="flex-1">
+              <h1 class="dark:text-slate-100 text-gray-900 text-[20px] font-bold tracking-tight py-5">
+                Let's Connect
+                <i class="fa-solid fa-link text-[20px]"></i>
+              </h1>
+    
+              <h2 class="dark:text-slate-100 text-gray-900 text-lg pb-3">
+                Feel free to connect with me on media social platforms
+                <i class="fa-solid fa-paper-plane text-red-400"></i>
+              </h2>
+    
+              <p class="dark:text-gray-400 text-gray-500 text-base tracking-tight">
+                I’m always happy to connect and share experiences.<br>
+                If you’d like to keep in touch or follow my work,<br>
+                you can find me on my social media platforms below
+              </p>
+    
+              <!-- SOCIAL ICONS -->
+              <div class="flex gap-6 pt-8">
+    
+                <a href="mailto:bagasbintant029472@gmail.com"
+                   class="group text-gray-500 hover:text-green-500 transition">
+                  <i class="fa-regular fa-at text-[25px] transition-transform duration-300 group-hover:scale-110"></i>
+                </a>
+    
+                <a href="https://www.linkedin.com/in/bagas-bintang-b5180834b"
+                   class="group text-gray-500 hover:text-blue-400 transition">
+                  <i class="fa-brands fa-linkedin text-[25px] transition-transform duration-300 group-hover:scale-110"></i>
+                </a>
+    
+                <a href="https://github.com/bagasbintang"
+                   class="group text-gray-500 hover:text-black dark:hover:text-white transition">
+                  <i class="fa-brands fa-github text-[25px] transition-transform duration-300 group-hover:scale-110"></i>
+                </a>
+    
+                <a href="https://www.instagram.com/bxtchofthesea"
+                   class="group text-gray-500 transition">
+                  <i class="fa-brands fa-instagram text-[25px]
+                    transition-transform duration-300 group-hover:scale-110
+                    group-hover:bg-gradient-to-tr group-hover:from-yellow-400
+                    group-hover:via-pink-500 group-hover:to-purple-600
+                    group-hover:bg-clip-text group-hover:text-transparent">
+                  </i>
+                </a>
+    
+                <a href="https://discordapp.com/users/1398203953602236446"
+                   class="group text-gray-500 hover:text-indigo-500 transition">
+                  <i class="fa-brands fa-discord text-[25px] transition-transform duration-300 group-hover:scale-110"></i>
+                </a>
+    
+              </div>
+            </div>
+    
+            <!-- RIGHT : SPOTIFY -->
+            <div class="w-full lg:w-[400px] border border-transparent bg-transparent">
+              <p class="text-sm font-bold text-gray-500 dark:text-gray-300 mb-2 ml-5 tracking-tight">
+                  Currently listening on
+                <i class="fa-brands fa-spotify text-xl text-green-500" style="animation: spin 5s linear infinite;"></i>
+              </p>
+    
+              <iframe
+                class="w-full h-[300px] rounded-2xl bg-transparent border-transparent"
+                src="https://open.spotify.com/embed/track/3OHfY25tqY28d16oZczHc8?utm_source=generator"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+              </iframe>
+            </div>
+    
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+
 
   <!-- FOOTER -->
 
-  <footer class="relative mt-32 overflow-hidden border-t border-gray-300 dark:border-gray-800">
+  <footer class="relative -mt-10 overflow-hidden border-t border-gray-300 dark:border-gray-800 tracking-tight">
 
 
     <!-- Background Image -->
@@ -460,7 +509,7 @@
 
         <div>
           <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold" href="Guestbook.html">GuestBook</a>
-          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold mt-2" href="more.html">More</a>
+          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold mt-2" href="tools.html">Tools</a>
         </div>
       </div>
 
@@ -472,7 +521,7 @@
       </div>
 
       <div class="mt-10 flex flex-wrap items-center gap-2 text-sm text-gray-400">
-        <span class="dark:text-gray-300">©BagasKara</span>
+        <span class="dark:text-gray-500">©BagasKara</span>
 
         <!-- DOT -->
         <span class="relative flex h-3 w-3 ml-1">
@@ -482,7 +531,7 @@
 
         <span id="online-text">Checking…</span>
         <span>• 2025</span>
-        <span>• 📍 Bandung, Indonesia</span>
+        <span>• 📍 Bandung, West Java, Indonesia 🇮🇩</span>
       </div>
     </div>
   </footer>

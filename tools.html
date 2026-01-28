@@ -52,7 +52,7 @@
         </button>
 
         <!-- MENU -->
-        <div class="hidden lg:flex ml-auto space-x-6 font-inter font-semibold text-gray-400 text-sm">
+        <div class="hidden lg:flex ml-auto space-x-6 font-inter font-semibold text-gray-400 text-sm tracking-tight">
           <a href="about.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
                      after:content-['']
                      after:absolute after:left-0 after:-bottom-1
@@ -80,7 +80,7 @@
                hover:after:w-full">
             GuestBook
           </a>
-          <a href="more.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
+          <a href="tools.html" class="relative inline-block dark:text-gray-400 dark:hover:text-white text-gray-500 hover:text-gray-900
             after:content-['']
             after:absolute after:left-0 after:-bottom-1
             after:h-[2px] after:w-0
@@ -127,19 +127,11 @@
           Home
         </a>
 
-        <a href="about.html" class="group flex items-center
-          dark:text-gray-100 text-gray-800 dark:hover:text-gray-100 py-2 px-3 rounded-md bg-gray-100 dark:bg-gray-900 transition duration-100 pointer-events-none">
-          <i class="fa-solid fa-leaf text-green-800 transition-transform duration-100 group-hover:scale-105"></i>
+        <a href="about.html" class="text-gray-500 dark:text-gray-500
+             hover:text-gray-800 dark:hover:text-gray-100 transition py-2 border-none hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md group transition duration-100">
 
-          <span class="ml-2">About</span>
-
-          <span class="ml-auto relative h-3 w-3">
-            <span class="absolute inset-0
-                 rounded-full bg-gray-500 dark:bg-gray-300
-                 animate-ping opacity-75"></span>
-            <span class="absolute inset-0
-                 rounded-full bg-indigo-500 dark:bg-red-300"></span>
-          </span>
+          <i class="fa-solid fa-leaf fa-md mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-green-800"></i>
+          About
 
         </a>
 
@@ -158,10 +150,19 @@
 
         </a>
 
-        <a href="more.html" class="text-gray-500 dark:text-gray-500
-   hover:text-gray-800 dark:hover:text-gray-100 transition py-2 border-none hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md group transition duration-100">
-          <i class="fa-solid fa-carrot fa-md mx-1 transition-transform duration-100 group-hover:scale-105 group-hover:text-orange-400"></i>
-          More
+        <a href="tools.html" class="group flex items-center
+          dark:text-gray-100 text-gray-800 dark:hover:text-gray-100 py-2 px-3 rounded-md bg-gray-100 dark:bg-gray-900 transition duration-100 pointer-events-none">
+          <i class="fa-solid fa-carrot text-orange-400 transition-transform duration-100 group-hover:scale-105"></i>
+
+          <span class="ml-2">Tools</span>
+
+          <span class="ml-auto relative h-3 w-3">
+            <span class="absolute inset-0
+                 rounded-full bg-gray-500 dark:bg-gray-300
+                 animate-ping opacity-75"></span>
+            <span class="absolute inset-0
+                 rounded-full bg-indigo-500 dark:bg-red-300"></span>
+          </span>
 
         </a>
 
@@ -236,10 +237,9 @@
     </div>
   </section>
 
-
   <!-- FOOTER -->
 
-  <footer class="relative mt-32 overflow-hidden border-t border-gray-300 dark:border-gray-800">
+  <footer class="relative mt-32 overflow-hidden border-t border-gray-300 dark:border-gray-800 tracking-tight">
 
 
     <!-- Background Image -->
@@ -254,12 +254,12 @@
       <div class="flex flex-col sm:flex-row gap-10 text-lg font-inter">
         <div>
           <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold" href="index.html">Home</a>
-          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold mt-2" href="project.html">Project</a>
+          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold mt-2" href="about.html">About</a>
         </div>
 
         <div>
-          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold" href="Guestbook.html">GuestBook</a>
-          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold mt-2" href="more.html">More</a>
+          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold" href="project.html">Project</a>
+          <a class="block text-gray-400 hover:text-gray-900 dark:hover:text-white font-semibold mt-2" href="Guestbook.html">Guestbook</a>
         </div>
       </div>
 
@@ -271,7 +271,7 @@
       </div>
 
       <div class="mt-10 flex flex-wrap items-center gap-2 text-sm text-gray-400">
-        <span class="dark:text-gray-300">©BagasKara</span>
+        <span class="dark:text-gray-500">©BagasKara</span>
 
         <!-- DOT -->
         <span class="relative flex h-3 w-3 ml-1">
@@ -281,7 +281,7 @@
 
         <span id="online-text">Checking…</span>
         <span>• 2025</span>
-        <span>• 📍 Bandung, Indonesia</span>
+        <span>• 📍 Bandung, West Java, Indonesia 🇮🇩</span>
       </div>
     </div>
   </footer>
